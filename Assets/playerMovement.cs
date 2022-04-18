@@ -9,8 +9,8 @@ public class playerMovement : MonoBehaviour
     public float runSpeed = 40f;
 
     float horizontalMove = 0f;
-    //bool jump = false;
-    //AudioSource footsteps;
+    bool jump = false;
+    AudioSource footsteps;
 
     // Start is called before the first frame update
     void Start()
@@ -36,17 +36,31 @@ public class playerMovement : MonoBehaviour
         }
 
 
-        // if (Input.GetButtonDown("Jump"))
-        // {
-        //     jump = true;
-        // }
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+        }
 
     }
 
     // Player movement
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, false);
-        //jump = false;
+        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        jump = false;
     }
+
+
+
+    public void pickUpItem()
+    {
+
+    }
+
+
+    public void dropItem()
+    {
+        
+    }
+
 }

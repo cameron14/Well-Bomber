@@ -8,8 +8,9 @@ public class inventoryManagment : MonoBehaviour
     [SerializeField] private GameObject slotHolder;
     [SerializeField] private itemScript itemToAdd;
     [SerializeField] private itemScript itemToRemove;
+    //[SerializeField] KeyCode itemPickUpKeyCode = KeyCode.F;
 
-    public List<itemScript> items = new List<itemScript>();
+    public List<itemScript> inventory = new List<itemScript>();
 
     // Was originally going to have it so the player could hold mulitple items
     // however upon play testing the game I found it made it too easy so reduced
@@ -40,7 +41,7 @@ public class inventoryManagment : MonoBehaviour
         {
             try {
                 slots[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
-                slots[i].transform.GetChild(0).GetComponent<Image>().sprite = items[i].itemIcon;
+                slots[i].transform.GetChild(0).GetComponent<Image>().sprite = inventory[i].itemIcon;
             }
             catch
             {
@@ -51,16 +52,43 @@ public class inventoryManagment : MonoBehaviour
     }
 
 
+    // private bool inRangeOfItem;
+
+    // public void Update()
+    // {
+    //     if (inRangeOfItem && Input.GetKeyDown(itemPickUpKeyCode))
+    //     {
+    //         Add(itemToAdd);
+    //         refreshInventoryUI();
+    //     }
+    // }
+
+
+    // public void OnTriggerEnter(Collider other)
+    // {
+    //     inRangeOfItem = true;
+    // }
+
+    // public void OnTriggerExit(Collider other)
+    // {
+    //     inRangeOfItem = false;
+    // }
+
+
+
+
+
+
     public void Add(itemScript item)
     {
-        items.Add(item);
+        inventory.Add(item);
         refreshInventoryUI();
     }
 
 
     public void Remove(itemScript item)
     {
-        items.Remove(item);
+        inventory.Remove(item);
         refreshInventoryUI();
     }
 

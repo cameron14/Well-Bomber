@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a76e8be69b17464693d34cacf3de052, type: 3}
   m_Name: barrel
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: BARREL
   itemIcon: {fileID: 21300000, guid: 2e77e382ed1cd4f8ead73d5c2d32cdce, type: 3}
   percentageFull: 0
