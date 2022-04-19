@@ -50,17 +50,4 @@ public class playerMovement : MonoBehaviour
         jump = false;
     }
 
-
-
-    public void pickUpItem()
-    {
-
-    }
-
-
-    public void dropItem()
-    {
-        
-    }
-
 }

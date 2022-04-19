@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerInventory : MonoBehaviour
 {
     // create inventory array with space for 1 item
-    public GameObject[] inventory = new GameObject[1];
+    public GameObject[] inventory = new GameObject[2];
 
+
+    public Image[] inventorySprites = new Image[2];
 
 
     // add an item to the inventory array
@@ -20,6 +23,10 @@ public class playerInventory : MonoBehaviour
             if (inventory[i] == null)
             {
                 inventory[i] = item;
+
+                // update inventory UI
+                inventorySprites[i].overrideSprite = item.GetComponent<SpriteRenderer>().sprite;
+
                 Debug.Log(item.name + " was added to players inventory");
                 itemAdded = true;
                 // do something with the object
@@ -47,6 +54,10 @@ public class playerInventory : MonoBehaviour
             inventory[1] = null;
             itemRemoved = true;
             Debug.Log("The item was removed from the players inventory");
+
+            // update inventory UI
+            inventorySprites[1].overrideSprite = null;
+
             //item2.SendMessage("DoInteractionShow");
         }
 

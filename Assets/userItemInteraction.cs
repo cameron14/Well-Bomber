@@ -10,15 +10,16 @@ public class userItemInteraction : MonoBehaviour
     public playerInventory inventory;
     //public GameObject currentItemPlayerIsHolding = null;
 
+
     void Update()
     {
-        if (Input.GetButtonDown("Interact") && currentInteractableObject)
+        if (Input.GetButtonDown("PickUp") && currentInteractableObject)
         {
             // check if item can be stored in inventory
             if(currentInteractableObjectScript.inventory)
             {
                 inventory.Add(currentInteractableObject);
-                //currentItemPlayerIsHolding = currentInteractableObject;
+
             }
 
         }
