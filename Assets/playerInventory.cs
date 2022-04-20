@@ -8,9 +8,8 @@ public class playerInventory : MonoBehaviour
 {
     // create inventory array with space for 1 item
     public GameObject[] inventory = new GameObject[2];
-
-
     public Image[] inventorySprites = new Image[2];
+    //public int wellPercentage = 100;
 
 
     // add an item to the inventory array
@@ -71,7 +70,7 @@ public class playerInventory : MonoBehaviour
 
 
     // increase barrel fullpercentage
-    public bool barrelIncrease(GameObject findBarrel )
+    public bool barrelIncrease(GameObject findBarrel)
     {
         // check to see if barrel is in inventory[0]
         if(inventory[0] == findBarrel)
@@ -106,6 +105,99 @@ public class playerInventory : MonoBehaviour
             return false;
         }
     }
+
+
+    // decrease barrel fullpercentage and increase wellPercentage
+    public bool barrelDecrease(GameObject findBarrel)
+    {
+        // check to see if barrel is in inventory[0]
+        if(inventory[0] == findBarrel)
+        {
+            // found barrel
+            // check to see if barrels fullPercentage > 0 (barrel not already empty)
+            if(inventory[0].GetComponent<InteractionObject>().fullPercentage > 0)
+            {
+                // Display barrel fullPercentage before increase
+                Debug.Log("inventory[0] full percentage before decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);    
+
+                // Delay decrease fullPercentage command to prevent user spamming interact key
+                Thread.Sleep(1000);
+
+                // Decrease barrel fullPercentage by 10
+                inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage - 100;
+
+                // Display barrel fullPercentage after increase
+                Debug.Log("inventory[0] full percentage after decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
+
+
+
+
+                // increase wellPercentage
+                inventory[0].GetComponent<InteractionObject>().wellPercentage = inventory[0].GetComponent<InteractionObject>().wellPercentage + 100;
+
+                // Display barrel fullPercentage after increase
+                Debug.Log("wellPercentage after increase attempt: " + inventory[0].GetComponent<InteractionObject>().wellPercentage);
+
+
+                if (inventory[0].GetComponent<InteractionObject>().wellPercentage == 1000)
+                {
+                    Debug.Log("Well FULL, you win!!!");
+                }
+
+
+               
+                return true;
+            }
+            else
+            {
+                Debug.Log("Barrel is already empty.");
+                return false;
+            }       
+        }
+        else // did not find barrel
+        {
+            Debug.Log("Did not find barrel in inventory[0]");
+            return false;
+        }
+    }
+
+
+    // function to check if user has the barrel in their inventory and
+    // it has water in it
+    public bool barrelCheck(GameObject findBarrel)
+    {
+        if(inventory[0] == findBarrel)
+        {
+            // barrel found
+            // check to see if barrel has water in it
+            if(inventory[0].GetComponent<InteractionObject>().fullPercentage > 0)
+            {
+                // barrel has water in it
+                Debug.Log("Barrel has water in it.");
+                return true;
+            }
+            else
+            {
+                Debug.Log("Barrel has NO water in it.");
+                return false;
+            }
+        }
+        else
+        {
+            // 404 barrel not found
+            Debug.Log("404 barrel not found");
+            return false;
+        }
+    }
+
+
+    // public bool wellCheck(GameObject wellPercentage)
+    // {
+    //     if( )
+    // }
+
+
+
 
 
     // public void topUpBarrel()

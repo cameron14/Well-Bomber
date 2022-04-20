@@ -14,7 +14,7 @@ public class userItemInteraction : MonoBehaviour
 
     void Update()
     {
-        // pick up item / interact with water pump and well ect
+        // pick up item / interact with water pump and well etc
         if (Input.GetButtonDown("PickUp") && currentInteractableObject)
         {
             // check if item can be stored in inventory
@@ -52,9 +52,30 @@ public class userItemInteraction : MonoBehaviour
                 }
             }
 
+            
+            // check to see if the object is the well
+            if (currentInteractableObjectScript.well)
+            {
+                // check to see if barrel is in user inventory and has water in it
+                if(inventory.barrelCheck(currentInteractableObjectScript.itemRequiredToWork))
+                {
+                    //Debug.Log("check to see if the object is the well");
+
+                    // Decrease barrel fullPercentage by 10 every time "Interact" key is pressed
+                    inventory.barrelDecrease(currentInteractableObjectScript.itemRequiredToWork);
+                    
+
+                    // increase wellPercentage
+                    
+                }
+
+
+
+            }
+
         }
 
-
+        // remove item from users inventory
         if (Input.GetButtonDown("Remove") && inventory != null)
         {
 

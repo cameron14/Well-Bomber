@@ -820,8 +820,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: 1
   canBeFilled: 1
-  fullPercentage: 100
+  fullPercentage: 70
   waterPump: 0
+  well: 0
+  wellPercentage: 0
   itemRequiredToWork: {fileID: 0}
 --- !u!1 &829359737
 GameObject:
@@ -1569,6 +1571,8 @@ MonoBehaviour:
   canBeFilled: 0
   fullPercentage: 0
   waterPump: 0
+  well: 0
+  wellPercentage: 0
   itemRequiredToWork: {fileID: 0}
 --- !u!1 &1176477656
 GameObject:
@@ -1951,6 +1955,8 @@ MonoBehaviour:
   canBeFilled: 0
   fullPercentage: 0
   waterPump: 1
+  well: 0
+  wellPercentage: 0
   itemRequiredToWork: {fileID: 578753601}
 --- !u!61 &1204545496
 BoxCollider2D:
@@ -2533,9 +2539,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1511517458}
   - component: {fileID: 1511517457}
+  - component: {fileID: 1511517460}
+  - component: {fileID: 1511517459}
   m_Layer: 0
-  m_Name: wellBricksLight (1)
-  m_TagString: Untagged
+  m_Name: well
+  m_TagString: interactableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2607,6 +2615,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1511517459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511517456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316f15e6b23394f008bc294e8738a29e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: 0
+  canBeFilled: 0
+  fullPercentage: 0
+  waterPump: 0
+  well: 1
+  wellPercentage: 0
+  itemRequiredToWork: {fileID: 578753601}
+--- !u!61 &1511517460
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511517456}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.6560974, y: 0.5977769}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.11, y: 6.31}
+    newSize: {x: 7.11, y: 6.31}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.422195, y: 7.505554}
+  m_EdgeRadius: 0
 --- !u!1 &1616069912
 GameObject:
   m_ObjectHideFlags: 0
@@ -3291,6 +3344,8 @@ MonoBehaviour:
   canBeFilled: 0
   fullPercentage: 0
   waterPump: 0
+  well: 0
+  wellPercentage: 0
   itemRequiredToWork: {fileID: 0}
 --- !u!58 &1991409951
 CircleCollider2D:
