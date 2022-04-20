@@ -9,7 +9,6 @@ public class playerInventory : MonoBehaviour
     // create inventory array with space for 1 item
     public GameObject[] inventory = new GameObject[2];
     public Image[] inventorySprites = new Image[2];
-    //public int wellPercentage = 100;
 
 
     // add an item to the inventory array
@@ -123,8 +122,15 @@ public class playerInventory : MonoBehaviour
                 // Delay decrease fullPercentage command to prevent user spamming interact key
                 Thread.Sleep(1000);
 
+
+
+                // increase wellPercentage
+                inventory[0].GetComponent<InteractionObject>().wellPercentage = inventory[0].GetComponent<InteractionObject>().wellPercentage + inventory[0].GetComponent<InteractionObject>().fullPercentage;
+
+
+
                 // Decrease barrel fullPercentage by 10
-                inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage - 100;
+                inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage - inventory[0].GetComponent<InteractionObject>().fullPercentage;
 
                 // Display barrel fullPercentage after increase
                 Debug.Log("inventory[0] full percentage after decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
@@ -132,13 +138,15 @@ public class playerInventory : MonoBehaviour
 
 
 
-                // increase wellPercentage
-                inventory[0].GetComponent<InteractionObject>().wellPercentage = inventory[0].GetComponent<InteractionObject>().wellPercentage + 100;
-
                 // Display barrel fullPercentage after increase
                 Debug.Log("wellPercentage after increase attempt: " + inventory[0].GetComponent<InteractionObject>().wellPercentage);
 
 
+                // increase height of well water image
+                //wellTracker.increaseWellWater();
+
+
+                // USE THE INCREASE WELLPERCENTAGE LINE BELOW TO INCREASE GAME DIFFICULTY
                 if (inventory[0].GetComponent<InteractionObject>().wellPercentage == 1000)
                 {
                     Debug.Log("Well FULL, you win!!!");
