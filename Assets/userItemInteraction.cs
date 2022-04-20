@@ -9,10 +9,12 @@ public class userItemInteraction : MonoBehaviour
     public InteractionObject currentInteractableObjectScript = null;
     public playerInventory inventory;
     //public GameObject currentItemPlayerIsHolding = null;
+    //public GameObject mygameobjectvariable = null;
 
 
     void Update()
     {
+        // pick up item / interact with water pump and well ect
         if (Input.GetButtonDown("PickUp") && currentInteractableObject)
         {
             // check if item can be stored in inventory
@@ -20,6 +22,34 @@ public class userItemInteraction : MonoBehaviour
             {
                 inventory.Add(currentInteractableObject);
 
+            }
+
+            // check to see if the object is the water pump
+            if (currentInteractableObjectScript.waterPump)
+            {
+                // check to make sure user has the barrel in first slot in inventory
+                // and it is not already full
+                if(inventory.barrelIncrease(currentInteractableObjectScript.itemRequiredToWork))
+                {
+                    // are now able to fill up barrel
+
+                    
+
+                    // \/ FAILED ATTEMPTS BELOW: \/
+
+                    //mygameobjectvariable.GetComponent<playerInventory>().inventory[1];
+
+                    //Debug.Log(inventory);
+
+
+                    //Debug.Log("Barrel fullPercentage + 10");
+
+
+
+                    //currentInteractableObjectScript.itemRequiredToWork.fullPercentage = fullPercentage + 10;
+                    //inventory[0].fullPercentage = fullPercentage + 10;
+                    //Debug.Log("barrel fullPercentage + 10");
+                }
             }
 
         }

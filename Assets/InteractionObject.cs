@@ -8,8 +8,9 @@ public class InteractionObject : MonoBehaviour
     public bool inventory;  // if true this object can be store in inventory
     public bool canBeFilled; // if true this object can be used to store water
     public int fullPercentage = 0; // how full of water is the object
+    public bool waterPump; // if true this object is the water pump and it can fill the barrel
+    public GameObject itemRequiredToWork; // has to be set to the barrel for the water pump to work (first slot in inventory array)
 
-    public playerInventory tempItem;
 
 
 
@@ -18,8 +19,4 @@ public class InteractionObject : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void DoInteractionShow()
-    {
-        gameObject.SetActive(true);
-    }
 }

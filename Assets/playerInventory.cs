@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading;
 
 public class playerInventory : MonoBehaviour
 {
@@ -67,5 +68,59 @@ public class playerInventory : MonoBehaviour
         }
 
     }
+
+
+    // increase barrel fullpercentage
+    public bool barrelIncrease(GameObject findBarrel )
+    {
+        // check to see if barrel is in inventory[0]
+        if(inventory[0] == findBarrel)
+        {
+            // found barrel
+            // check to see if barrels fullPercentage < 100 (barrel not already full)
+            if(inventory[0].GetComponent<InteractionObject>().fullPercentage < 100)
+            {
+                // Display barrel fullPercentage before increase
+                Debug.Log("inventory[0] full percentage before increase attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);    
+
+                // Delay increase fullPercentage command to prevent user spamming interact key
+                Thread.Sleep(1500);
+
+                // Increase barrel fullPercentage by 10
+                inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage + 10;
+
+                // Display barrel fullPercentage after increase
+                Debug.Log("inventory[0] full percentage after increase attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
+
+                return true;
+            }
+            else
+            {
+                Debug.Log("Barrel is already 100% full.");
+                return false;
+            }       
+        }
+        else // did not find barrel
+        {
+            Debug.Log("Did not find barrel in inventory[0]");
+            return false;
+        }
+    }
+
+
+    // public void topUpBarrel()
+    // {
+    //     if(item.fullPercentage < 100)
+    //     {
+    //         item.fullPercentage  = fullPercentage + 10;
+    //         Debug.Log("Barrel fullPercentage + 10");
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("Barrel already full");
+    //     }
+
+    // }
+
 
 }
