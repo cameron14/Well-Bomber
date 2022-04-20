@@ -124,12 +124,29 @@ public class playerInventory : MonoBehaviour
 
 
 
+
+
                 // increase wellPercentage
                 inventory[0].GetComponent<InteractionObject>().wellPercentage = inventory[0].GetComponent<InteractionObject>().wellPercentage + inventory[0].GetComponent<InteractionObject>().fullPercentage;
 
+                int tempBarrelNum = inventory[0].GetComponent<InteractionObject>().fullPercentage;
 
 
-                // Decrease barrel fullPercentage by 10
+
+                // increase height of well water image
+                wellTracker wellImage;
+                wellImage = FindObjectOfType<wellTracker>();
+                wellImage.increaseWellWater(tempBarrelNum);
+                //Debug.Log("increaseWellWater");
+
+                // Display wellPercentage after increase
+                Debug.Log("wellPercentage after increase attempt: " + inventory[0].GetComponent<InteractionObject>().wellPercentage);
+
+
+
+
+
+                // Decrease barrel fullPercentage to 0
                 inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage - inventory[0].GetComponent<InteractionObject>().fullPercentage;
 
                 // Display barrel fullPercentage after increase
@@ -138,14 +155,6 @@ public class playerInventory : MonoBehaviour
 
 
 
-                // Display barrel fullPercentage after increase
-                Debug.Log("wellPercentage after increase attempt: " + inventory[0].GetComponent<InteractionObject>().wellPercentage);
-
-
-                // increase height of well water image
-                wellTracker wellImage;
-                wellImage = FindObjectOfType<wellTracker>();
-                wellImage.increaseWellWater();
 
 
                 // USE THE INCREASE WELLPERCENTAGE LINE BELOW TO INCREASE GAME DIFFICULTY

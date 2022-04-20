@@ -5,8 +5,8 @@ using UnityEngine;
 public class wellTracker : MonoBehaviour
 {
 
-    public int increase = 5;
-    public int decrease = -5;
+    public int increase = 100;
+    public int decrease = -100;
 
 
 
@@ -24,9 +24,15 @@ public class wellTracker : MonoBehaviour
 
 
     // increase well water image height
-    public void increaseWellWater()
+    public void increaseWellWater(int tempBarrelNum)
     {
-        transform.Translate(0f, increase, 0); 
+        //tempBarrelNum = tempBarrelNum / 10;
+        Debug.Log("tempBarrelNum: " + tempBarrelNum);
+
+        int tempIncrease = increase / tempBarrelNum;
+        Debug.Log("tempIncrease: " + tempIncrease);
+
+        transform.Translate(0f, tempIncrease, 0); 
     }
 
 
