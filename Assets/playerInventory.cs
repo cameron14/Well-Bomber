@@ -143,7 +143,9 @@ public class playerInventory : MonoBehaviour
 
 
                 // increase height of well water image
-                //wellTracker.increaseWellWater();
+                wellTracker wellImage;
+                wellImage = FindObjectOfType<wellTracker>();
+                wellImage.increaseWellWater();
 
 
                 // USE THE INCREASE WELLPERCENTAGE LINE BELOW TO INCREASE GAME DIFFICULTY

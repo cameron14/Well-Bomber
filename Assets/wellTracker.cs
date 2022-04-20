@@ -13,13 +13,13 @@ public class wellTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.Translate(0f, -5.25f, 0);       
+        transform.Translate(0f, -10f, 0);       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+                
     }
 
 
