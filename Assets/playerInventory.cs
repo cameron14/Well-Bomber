@@ -157,12 +157,12 @@ public class playerInventory : MonoBehaviour
 
 
 
-                int tempBarrelNum = inventory[0].GetComponent<InteractionObject>().fullPercentage;
+                // int tempBarrelNum = inventory[0].GetComponent<InteractionObject>().fullPercentage;
 
-                // increase height of well water image
-                wellTracker wellImage;
-                wellImage = FindObjectOfType<wellTracker>();
-                wellImage.increaseWellWater(tempBarrelNum);
+                // // increase height of well water image
+                // wellTracker wellImage;
+                // wellImage = FindObjectOfType<wellTracker>();
+                // wellImage.increaseWellWater(tempBarrelNum);
 
 
 

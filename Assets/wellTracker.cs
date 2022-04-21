@@ -6,18 +6,15 @@ public class wellTracker : MonoBehaviour
 {
     public int wellPercentage;
 
-    public float startingLevel = -5.0f;  // set this number in the inspector to set the waters starting height
-
-    public float increase = 1.0f;  // set this number in the inspector to set the waters starting height
-                                    // make sure and set the wellPercentage in the inspector under "well" in the hierarchy as well
-    //public int decrease = -100;
-
+    public float startingLevel = 9.0f;  // set this number in the inspector to set the waters starting height 
+                                        // (might not actually do anyhting idk but the well seems to work if you dont touch it)
+                                        
 
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.Translate(0f, increase, 0);       
+        transform.Translate(0f, startingLevel, 0);       
     }
 
     // Update is called once per frame
@@ -38,12 +35,12 @@ public class wellTracker : MonoBehaviour
 
 
     // set new wellPercentage after user increases it with the barrel
-    public void wellPercentageSetter(int newWellPercentage)
+    public void wellPercentageSetter(int barrel_fullPercentage)
     {
-        wellPercentage = wellPercentage + newWellPercentage;
+        wellPercentage = wellPercentage + barrel_fullPercentage;
         Debug.Log("NEW WELL PERCENTAGE!!!!!! = " + wellPercentage);
 
-
+        increaseWellWater(barrel_fullPercentage);
 
         // level is won if wellPercentageAfterIncrease is 1000 or more
         // USE THE INCREASE WELLPERCENTAGE LINE BELOW TO INCREASE GAME DIFFICULTY
@@ -58,15 +55,23 @@ public class wellTracker : MonoBehaviour
 
 
     // increase well water image height and wellPercentage
-    public void increaseWellWater(int tempBarrelNum)
+    public void increaseWellWater(int barrel_fullPercentage)
     {
+        Debug.Log("increaseWellWater -> barrel_fullPercentage: " + barrel_fullPercentage);
+
+        float floating_barrel_fullPercentage = barrel_fullPercentage;
+        //Debug.Log("increaseWellWater -> floating_barrel_fullPercentage: " + floating_barrel_fullPercentage);
+
+
+
+        float tempNum = floating_barrel_fullPercentage / 10;
+        float tempNum2 = tempNum / 10;
         
-        //Debug.Log("tempBarrelNum: " + tempBarrelNum);
+        Debug.Log("increaseWellWater -> tempNum: " + tempNum2);
 
-        int tempIncrease = tempBarrelNum;
-        Debug.Log("tempIncrease: " + tempIncrease);
 
-        transform.Translate(0f, 1f, 0); 
+
+        transform.Translate(0f, tempNum2, 0); 
         //Debug.Log("tempIncrease after image update: " + tempIncrease);
     }
 
