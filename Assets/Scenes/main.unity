@@ -820,7 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: 1
   canBeFilled: 1
-  fullPercentage: 70
+  fullPercentage: 50
   waterPump: 0
   well: 0
   itemRequiredToWork: {fileID: 0}
@@ -1864,9 +1864,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61882693525114918a6b15b7dc79ca76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wellPercentage: 900
-  startingLevel: -5
-  increase: -1
+  wellPercentage: 500
+  startingLevel: 0
 --- !u!1 &1204545492
 GameObject:
   m_ObjectHideFlags: 0

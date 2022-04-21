@@ -7,8 +7,9 @@ public class wellTracker : MonoBehaviour
     public int wellPercentage;
 
     public float startingLevel = 9.0f;  // set this number in the inspector to set the waters starting height 
+                                        // startingLevel value can be from -10 (bottom) to 0 (top)
                                         // (might not actually do anyhting idk but the well seems to work if you dont touch it)
-                                        
+
 
 
     // Start is called before the first frame update
@@ -79,6 +80,7 @@ public class wellTracker : MonoBehaviour
     // decrease well water image height
     public void decreaseWellWater()
     {
+        wellPercentage = wellPercentage - 100;
         transform.Translate(0f, -1f, 0); 
     }
 
