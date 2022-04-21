@@ -823,6 +823,7 @@ MonoBehaviour:
   fullPercentage: 70
   waterPump: 0
   well: 0
+  wellPercentage: 0
   itemRequiredToWork: {fileID: 0}
 --- !u!1 &829359737
 GameObject:
@@ -1571,6 +1572,7 @@ MonoBehaviour:
   fullPercentage: 0
   waterPump: 0
   well: 0
+  wellPercentage: 0
   itemRequiredToWork: {fileID: 0}
 --- !u!1 &1176477656
 GameObject:
@@ -1864,9 +1866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61882693525114918a6b15b7dc79ca76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wellPercentage: 900
-  startingLevel: -5
-  increase: -1
+  increase: 5
+  decrease: -5
 --- !u!1 &1204545492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,6 +1971,7 @@ MonoBehaviour:
   fullPercentage: 0
   waterPump: 1
   well: 0
+  wellPercentage: 0
   itemRequiredToWork: {fileID: 578753601}
 --- !u!61 &1204545496
 BoxCollider2D:
@@ -2645,6 +2647,7 @@ MonoBehaviour:
   fullPercentage: 0
   waterPump: 0
   well: 1
+  wellPercentage: 0
   itemRequiredToWork: {fileID: 578753601}
 --- !u!61 &1511517460
 BoxCollider2D:
@@ -3357,6 +3360,7 @@ MonoBehaviour:
   fullPercentage: 0
   waterPump: 0
   well: 0
+  wellPercentage: 0
   itemRequiredToWork: {fileID: 0}
 --- !u!58 &1991409951
 CircleCollider2D:
