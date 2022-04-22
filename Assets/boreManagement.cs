@@ -6,66 +6,55 @@ public class boreManagement : MonoBehaviour
 {
 
     public bool moveToWell = true;
-    public float speed = 4f; // default speed of tunnel bore - change speed in inspector
-    //public float endPoint = 1.0f;
-    // float tempX;
-    // float tempY;
+    public float speed = 1f; // default speed of tunnel bore - change speed in inspector
+    Vector2 endPosition = new Vector2(-50f, 1.63f); // -50f is where the bore stops
+    AudioSource boreNoise;
 
-    //     tempX = transform.position.x;
-    //     tempY = transform.position.y;
-
-    //Vector2 startPosition = new Vector2 (transform.position.x, 0); 
-    //Vector2 endPosition = new Vector2 (-79, 0); // where the well is
-
-
-    Vector2 endPosition = new Vector2(-50f, 1.63f);
-    // Vector2 tempPosition = new Vector2(tempX, tempY);
-    //Vector2 position = gameObject.transform.position;
-
-
-
-
+    public bool alive = false;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log("boreEndtPosition: " + endPosition);
+        alive = true;
+
+        if(alive == true) // transform.position.x != -42.7f && transform.position.x != -50f && 
+        {
+            GetComponent<AudioSource> ().Play ();
+        }
+        else
+        {
+            GetComponent<AudioSource> ().Pause ();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // tempX = transform.position.x;
-        // tempY = transform.position.y;
-        // Debug.Log(tempX);
-        // Debug.Log(tempY);
 
 
 
+        moveBore();
 
 
-        //if(transform.position.x != -60f)
-        //{
-           float step = speed * Time.deltaTime;
-
-            transform.position = Vector2.MoveTowards(transform.position, endPosition, step);
-       // }
-
-
-
-        //if(transform.position.x != endPoint) 
-        //{
-
-        //    transform.Translate(Vector2.left * speed * Time.deltaTime);
-        //}
-
-
-
-
-
-
+        
 
     }
+
+
+
+    public void moveBore()
+    {
+        //moving = true;
+
+        // Move the tunnel bore to the well
+        float step = speed * Time.deltaTime;
+        
+
+        transform.position = Vector2.MoveTowards(transform.position, endPosition, step);
+        
+    }
+
+
 }

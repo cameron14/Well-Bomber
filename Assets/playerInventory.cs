@@ -82,7 +82,7 @@ public class playerInventory : MonoBehaviour
                 Debug.Log("inventory[0] full percentage before increase attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);    
 
                 // Delay increase fullPercentage command to prevent user spamming interact key
-                Thread.Sleep(1500);
+                //Thread.Sleep(1500);
 
                 // Increase barrel fullPercentage by 10
                 inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage + 25;
@@ -123,7 +123,7 @@ public class playerInventory : MonoBehaviour
                 Debug.Log("inventory[0] full percentage before decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);    
 
                 // Delay decrease fullPercentage command to prevent user spamming interact key
-                Thread.Sleep(1000);
+                //Thread.Sleep(1000);
 
 
                 // get current wellPercentage from wellTracker
