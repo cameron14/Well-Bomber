@@ -33,20 +33,14 @@ public class boreManagement : MonoBehaviour
     void Update()
     {
 
-
-
-        moveBore();
-
-
-        
+        //moveBore();
 
     }
 
 
-
+    // tunnel bores will start coming along when the water level in the well gets to a certain percentage e.g. wellPercentage = 500
     public void moveBore()
     {
-        //moving = true;
 
         // Move the tunnel bore to the well
         float step = speed * Time.deltaTime;

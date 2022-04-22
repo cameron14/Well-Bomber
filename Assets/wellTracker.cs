@@ -14,6 +14,8 @@ public class wellTracker : MonoBehaviour
 
     AudioSource waterPouring;
 
+    public int boreStartsMovingPercentage = 900;
+
 
 
     // Start is called before the first frame update
@@ -25,7 +27,16 @@ public class wellTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-                
+        // start moving tunnel bore
+        if (boreStartsMovingPercentage == wellPercentage || wellPercentage >= boreStartsMovingPercentage)
+        {
+
+            
+            // call tunnel bore to start moving towards the well
+            boreManagement callBore;
+            callBore = FindObjectOfType<boreManagement>();
+            callBore.moveBore();
+        }
     }
 
 
@@ -46,6 +57,12 @@ public class wellTracker : MonoBehaviour
         Debug.Log("NEW WELL PERCENTAGE!!!!!! = " + wellPercentage);
 
         increaseWellWater(barrel_fullPercentage);
+
+
+
+
+
+
 
         // level is won if wellPercentageAfterIncrease is 1000 or more
         // USE THE INCREASE WELLPERCENTAGE LINE BELOW TO INCREASE GAME DIFFICULTY

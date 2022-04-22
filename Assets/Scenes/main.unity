@@ -1697,8 +1697,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61882693525114918a6b15b7dc79ca76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wellPercentage: 900
+  wellPercentage: 800
   startingLevel: -1
+  boreStartsMovingPercentage: 900
 --- !u!82 &1198162148
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2713,7 +2714,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8dce2115040194710b75f92fa05a6f18, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0

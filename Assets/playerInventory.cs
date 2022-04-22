@@ -126,28 +126,12 @@ public class playerInventory : MonoBehaviour
                 //Thread.Sleep(1000);
 
 
-                // get current wellPercentage from wellTracker
-                //int WellPercentageFromGiver = 0;
 
-                //wellTracker well_currentPercentage;
-
-                //well_currentPercentage = FindObjectOfType<wellTracker>();
-
-               // well_currentPercentage.wellPercentageGiver(WellPercentageFromGiver);
-
-
-                // display current variables values
                 int barrel_fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage;
-                //Debug.Log("barrel_fullPercentage = " + barrel_fullPercentage);
-                //Debug.Log("WellPercentageFromGiver = " + WellPercentageFromGiver);
-                
-                //int barrel_plus_well = barrel_fullPercentage + WellPercentageFromGiver;
-                //Debug.Log("barrel_plus_well = " + barrel_plus_well);
-                
-                
 
 
-                // increase wellPercentage
+
+                // increase wellPercentage (fill up well)
                 wellTracker setNewWellPercentage;
                 setNewWellPercentage = FindObjectOfType<wellTracker>();
                 setNewWellPercentage.wellPercentageSetter(barrel_fullPercentage);
@@ -157,18 +141,7 @@ public class playerInventory : MonoBehaviour
 
 
 
-                // int tempBarrelNum = inventory[0].GetComponent<InteractionObject>().fullPercentage;
-
-                // // increase height of well water image
-                // wellTracker wellImage;
-                // wellImage = FindObjectOfType<wellTracker>();
-                // wellImage.increaseWellWater(tempBarrelNum);
-
-
-
-
-                // get wellPercentage after increase from wellTracker
-                // and display it in console
+                // get wellPercentage after increase from wellTracker and display it in console
                 int wellPercentageAfterIncrease = 0;
                 wellTracker well_newPercentage;
                 well_newPercentage = FindObjectOfType<wellTracker>();
@@ -178,16 +151,11 @@ public class playerInventory : MonoBehaviour
 
 
 
-                // Decrease barrel fullPercentage to 0
+                // Decrease barrel fullPercentage to 0 (set barrel to empty)
                 inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage - inventory[0].GetComponent<InteractionObject>().fullPercentage;
 
                 // Display barrel fullPercentage after increase
-                Debug.Log("inventory[0] full percentage after decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
-
-
-
-
-
+                //Debug.Log("inventory[0] full percentage after decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
 
                
                 return true;
