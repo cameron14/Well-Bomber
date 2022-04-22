@@ -21,7 +21,8 @@ public class wellTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.Translate(0f, startingLevel, 0);       
+        transform.Translate(0f, startingLevel, 0); 
+
     }
 
     // Update is called once per frame
@@ -30,14 +31,17 @@ public class wellTracker : MonoBehaviour
         // start moving tunnel bore
         if (boreStartsMovingPercentage == wellPercentage || wellPercentage >= boreStartsMovingPercentage)
         {
-
-            
             // call tunnel bore to start moving towards the well
             boreManagement callBore;
             callBore = FindObjectOfType<boreManagement>();
             callBore.moveBore();
+            
         }
+
+    
     }
+
+
 
 
     // return wellPercentage
@@ -102,7 +106,7 @@ public class wellTracker : MonoBehaviour
 
 
     // decrease well water image height
-    public void decreaseWellWater()
+    public void decreaseWellWater() // NEEDS TO CHECK IF WELL GETS TO 0
     {
         wellPercentage = wellPercentage - 100;
         transform.Translate(0f, -1f, 0); 
