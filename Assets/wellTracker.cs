@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
+
 
 public class wellTracker : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class wellTracker : MonoBehaviour
     public float startingLevel = 9.0f;  // set this number in the inspector to set the waters starting height 
                                         // startingLevel value can be from -10 (bottom) to 0 (top)
                                         // (might not actually do anyhting idk but the well seems to work if you dont touch it)
+
+    AudioSource waterPouring;
 
 
 
@@ -71,6 +75,9 @@ public class wellTracker : MonoBehaviour
         Debug.Log("increaseWellWater -> tempNum: " + tempNum2);
 
 
+        GetComponent<AudioSource> ().Play ();
+        //Thread.Sleep(1500);
+        
 
         transform.Translate(0f, tempNum2, 0); 
         //Debug.Log("tempIncrease after image update: " + tempIncrease);

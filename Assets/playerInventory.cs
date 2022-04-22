@@ -85,7 +85,7 @@ public class playerInventory : MonoBehaviour
                 Thread.Sleep(1500);
 
                 // Increase barrel fullPercentage by 10
-                inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage + 50;
+                inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage + 25;
 
                 // Display barrel fullPercentage after increase
                 Debug.Log("inventory[0] full percentage after increase attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
