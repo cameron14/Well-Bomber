@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Threading;
+//using System.Threading;
 
 
 public class wellTracker : MonoBehaviour
@@ -16,6 +16,16 @@ public class wellTracker : MonoBehaviour
 
     public int boreStartsMovingPercentage = 900;
 
+    bool boreAtWell;
+    //bool answer;
+    bool tempAnswer;
+    public int counter = 0;
+
+
+    public int boreCounterGiver(int counterFromGiver)
+    {
+        return counter;
+    }
 
 
     // Start is called before the first frame update
@@ -29,17 +39,34 @@ public class wellTracker : MonoBehaviour
     void Update()
     {
         // start moving tunnel bore
-        if (boreStartsMovingPercentage == wellPercentage || wellPercentage >= boreStartsMovingPercentage)
+        if (wellPercentage >= boreStartsMovingPercentage && boreAtWell == false && counter <= 500) // boreStartsMovingPercentage == wellPercentage ||
         {
             // call tunnel bore to start moving towards the well
             boreManagement callBore;
             callBore = FindObjectOfType<boreManagement>();
             callBore.moveBore();
+
+            // get wellPercentage after increase from wellTracker and display it in console
+            boreManagement findOutIfBoreHasReachedWellYet;
+            findOutIfBoreHasReachedWellYet = FindObjectOfType<boreManagement>();
+            findOutIfBoreHasReachedWellYet.hasBoreReachedWell(tempAnswer);
             
+            boreAtWell = tempAnswer;
+            Debug.Log("has bore reached well yet: " + boreAtWell);
+            counter++;
+            Debug.Log("Counter: " + counter);
+
         }
+
+        //answer = true;
+        //Debug.Log("Final Answer: " + answer);
+        //Debug.Log("Counter: " + counter);
+
 
     
     }
+
+
 
 
 
