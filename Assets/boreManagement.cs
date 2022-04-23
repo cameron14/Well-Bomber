@@ -12,7 +12,9 @@ public class boreManagement : MonoBehaviour
     bool boreAtWell;
     bool boreAtWellFromWellTracker = false;
     //int boreCounter = 0;
-
+    bool leakNow = false;
+    int holdWellPercentage = 0;
+    public int counter = 10;
 
 
 
@@ -38,7 +40,12 @@ public class boreManagement : MonoBehaviour
 
         // } while (counterEquals500 == false);
         
+
+
         Debug.Log("boreManagement Start()");
+
+        
+
 
     }
 
@@ -46,10 +53,13 @@ public class boreManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // get counter for the bore from wellTracker.cs
         wellTracker _wellTracker = FindObjectOfType<wellTracker>();
         Debug.Log("_wellTracker.counter: " + _wellTracker.counter);
-
+        Debug.Log("_wellPercentage.wellPercentage: " + _wellTracker.wellPercentage);
+        holdWellPercentage = _wellTracker.wellPercentage;
+        Debug.Log("holdWellPercentage: " + holdWellPercentage);
 
         if(_wellTracker.counter >= 500)
         {
@@ -58,9 +68,23 @@ public class boreManagement : MonoBehaviour
         }
 
 
-
         isBoreAtWell();
 
+    }
+
+
+
+    public bool shouldILeak(bool answer)
+    {
+        if(holdWellPercentage >= 500 && boreAtWellFromWellTracker == true)
+        {
+            leakNow = true;
+            Debug.Log("leak now@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            return leakNow;
+        }
+        
+        leakNow = false;
+        return false;
     }
 
 
@@ -74,8 +98,23 @@ public class boreManagement : MonoBehaviour
 
 
 
+    public void callDecreaseWellWater()
+    {
+        // get counter for the bore from wellTracker.cs
+        wellTracker _wellTracker2 = FindObjectOfType<wellTracker>();
+        _wellTracker2.decreaseWellWater();
+
+        if (--counter == 0)CancelInvoke("callDecreaseWellWater");
+            
+    }
+
+
     public void isBoreAtWell()
     {
+
+        
+
+
 
         if(transform.position.x == -50f)
         {
@@ -92,16 +131,37 @@ public class boreManagement : MonoBehaviour
 
             // set well to decrease from bore damage here. e.g. leak if wellPercentage is >= 1000 && wellPercentage <= 500 && boreCounter >= 500 && not bombed
 
-            // while(//wellPercentage >= 500 && boreAtWellFromWellTracker = true && not bombed)
-            // {
-            //     // every 10 seconds
-            //         //decreaseWellWater()
 
-            //         if(wellPercentage <= 500 && not bombed)
-            //         {
-            //             //do nothing
-            //         }
-            // }
+
+            bool temp = false;
+
+            shouldILeak(temp);
+            Debug.Log("Temp:" + temp);
+
+            // ADD IN BIT ABOUT BOMBINB BORE WHERE!!!!!!
+            while(leakNow == true)       //wellPercentage >= 500 && boreAtWellFromWellTracker = true && not bombed)     
+            {
+
+                // display what shouldILeak sends
+                shouldILeak(temp);
+                Debug.Log("Temp:" + temp);
+                
+
+
+                
+                    // every 10 seconds
+                    float x = 5.0f;
+                    float y = 10.0f;
+                    InvokeRepeating("callDecreaseWellWater", x, y);
+                
+                break;
+
+                // if(wellPercentage <= 500 || boreAtWellFromWellTracker = false)  // ADD IN BIT ABOUT BOMBINB BORE WHERE!!!!!!
+                // {
+                //     Debug.Log("Well to empty to leak. ( < 500 )");
+                //     break;
+                // }
+            }
 
         }
         else
