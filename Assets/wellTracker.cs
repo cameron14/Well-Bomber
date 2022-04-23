@@ -133,10 +133,31 @@ public class wellTracker : MonoBehaviour
 
 
     // decrease well water image height
-    public void decreaseWellWater() // NEEDS TO CHECK IF WELL GETS TO 0
+    public void decreaseWellWater(int boreNumber) // NEEDS TO CHECK IF WELL GETS TO 0
     {
-        wellPercentage = wellPercentage - 100;
-        transform.Translate(0f, -1f, 0); 
+        
+        Debug.Log("int boreNumber: " + boreNumber);
+
+        if(boreNumber == 1)
+        {
+            if(wellPercentage >= 600)
+            {
+                wellPercentage = wellPercentage - 100;
+                transform.Translate(0f, -1f, 0); 
+            } 
+        }
+
+        if(boreNumber == 2)
+        {
+            if(wellPercentage >= 1 && wellPercentage < 500)
+            {
+                wellPercentage = wellPercentage - 0;
+                transform.Translate(0f, -1f, 0); 
+            } 
+        }
+        
+        
+        
     }
 
 

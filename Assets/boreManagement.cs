@@ -100,9 +100,11 @@ public class boreManagement : MonoBehaviour
 
     public void callDecreaseWellWater()
     {
+        int boreNumber = 1;
+
         // get counter for the bore from wellTracker.cs
         wellTracker _wellTracker2 = FindObjectOfType<wellTracker>();
-        _wellTracker2.decreaseWellWater();
+        _wellTracker2.decreaseWellWater(boreNumber);
 
         if (--counter == 0)CancelInvoke("callDecreaseWellWater");
             
@@ -147,11 +149,9 @@ public class boreManagement : MonoBehaviour
                 Debug.Log("Temp:" + temp);
                 
 
-
-                
-                    // every 10 seconds
-                    float x = 5.0f;
-                    float y = 10.0f;
+                    
+                    float x = 15.0f;
+                    float y = 30.0f;
                     InvokeRepeating("callDecreaseWellWater", x, y);
                 
                 break;
