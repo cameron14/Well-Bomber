@@ -277,6 +277,39 @@ public class playerInventory : MonoBehaviour
 
 
 
+     public void BombBore2()
+    {
+        //bool hasBomb = false;
+
+        //bombCheck(GameObject findBomb);
+
+        if(hasBomb == true)
+        {
+            //Debug.Log("user has a bomb");
+
+            
+            
+            // get counter for the bore from wellTracker.cs
+            boreManagement2 bore2Thing = FindObjectOfType<boreManagement2>();
+            bool tempTempTemp = true;
+
+
+
+            bore2Thing.bombBore2(tempTempTemp);
+
+        }
+        else
+        {
+           // Debug.Log("user does not have a bomb");
+        }
+
+        Remove();
+    }
+
+
+
+
+
     public void useBricks()
     {
 

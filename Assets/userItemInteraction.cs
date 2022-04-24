@@ -103,6 +103,20 @@ public class userItemInteraction : MonoBehaviour
             
         }
 
+        if (Input.GetButtonDown("BombBore2") && inventory != null)
+        {
+            //inventory.bombCheck(currentInteractableObjectScript.itemRequiredToWork);
+
+            if(inventory.hasBomb == true)
+            {
+                inventory.BombBore2();
+            }
+            else{
+                Debug.Log("User does NOT have a bomb");
+            }
+            
+        }
+
 
         if (Input.GetButtonDown("Repair") && inventory != null)
         {

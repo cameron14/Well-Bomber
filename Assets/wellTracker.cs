@@ -14,17 +14,26 @@ public class wellTracker : MonoBehaviour
 
     AudioSource waterPouring;
 
-    public int boreStartsMovingPercentage = 900;
+    public int boreStartsMovingPercentage = 500;
+    public int bore2StartsMovingPercentage = 400;
 
     public bool boreAtWell;
+    public bool bore2AtWell;
     //bool answer;
     bool tempAnswer;
+    bool tempAnswer2;
     public int counter = 0;
+    public int counter2 = 0;
 
 
     public int boreCounterGiver(int counterFromGiver)
     {
         return counter;
+    }
+
+    public int bore2CounterGiver(int counterFromGiver)
+    {
+        return counter2;
     }
 
 
@@ -54,6 +63,28 @@ public class wellTracker : MonoBehaviour
             boreAtWell = tempAnswer;
             //("has bore reached well yet: " + boreAtWell);
             counter++;
+            //Debug.Log("Counter: " + counter);
+
+        }
+
+
+
+        // start moving tunnel bore 2
+        if (wellPercentage >= bore2StartsMovingPercentage && bore2AtWell == false && counter <= 500) // boreStartsMovingPercentage == wellPercentage ||
+        {
+            // call tunnel bore to start moving towards the well
+            boreManagement2 callBore;
+            callBore = FindObjectOfType<boreManagement2>();
+            callBore.moveBore();
+
+            // get wellPercentage after increase from wellTracker and display it in console
+            boreManagement2 findOutIfBoreHasReachedWellYet;
+            findOutIfBoreHasReachedWellYet = FindObjectOfType<boreManagement2>();
+            findOutIfBoreHasReachedWellYet.hasBoreReachedWell(tempAnswer2);
+            
+            bore2AtWell = tempAnswer2;
+            //("has bore reached well yet: " + boreAtWell);
+            counter2++;
             //Debug.Log("Counter: " + counter);
 
         }
