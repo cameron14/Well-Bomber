@@ -68,10 +68,15 @@ public class userItemInteraction : MonoBehaviour
                     // increase wellPercentage
                     
                 }
-
-
-
             }
+
+
+            if (currentInteractableObjectScript.bomb)
+            {
+                inventory.bombCheck(currentInteractableObjectScript.itemRequiredToWork);
+            }
+
+            
 
         }
 
@@ -82,7 +87,12 @@ public class userItemInteraction : MonoBehaviour
             inventory.Remove();
         }
 
-        //Debug.Log(currentItemPlayerIsHolding);
+
+
+        if (Input.GetButtonDown("Bomb") && inventory != null)
+        {
+            //inventory.Bomb();
+        }
 
 
     }

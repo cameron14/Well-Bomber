@@ -12,7 +12,7 @@ public class InteractionObject : MonoBehaviour
     public bool well; // if true this is the big well on the left of the screen
     //public int wellPercentage = 0; // how full of water the well is
     public GameObject itemRequiredToWork; // has to be set to the barrel for the water pump to work (first slot in inventory array)
-
+    public bool bomb;
 
 
 

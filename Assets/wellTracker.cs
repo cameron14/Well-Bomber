@@ -156,6 +156,15 @@ public class wellTracker : MonoBehaviour
             } 
         }
         
+
+
+
+        if (wellPercentage == 0)
+        {
+            Debug.Log("You loose! Good day sir!");
+        
+        }
+
         
         
     }

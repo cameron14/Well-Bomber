@@ -965,6 +965,7 @@ MonoBehaviour:
   waterPump: 0
   well: 0
   itemRequiredToWork: {fileID: 0}
+  bomb: 0
 --- !u!1 &829359737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,7 +1545,8 @@ MonoBehaviour:
   fullPercentage: 0
   waterPump: 0
   well: 0
-  itemRequiredToWork: {fileID: 0}
+  itemRequiredToWork: {fileID: 1116099270}
+  bomb: 1
 --- !u!1 &1176477656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,6 +2058,7 @@ MonoBehaviour:
   waterPump: 1
   well: 0
   itemRequiredToWork: {fileID: 578753601}
+  bomb: 0
 --- !u!61 &1204545496
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2505,7 +2508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367924102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.29, y: -3.91, z: 0}
+  m_LocalPosition: {x: -45.29, y: -3.11, z: 0}
   m_LocalScale: {x: 1.5053, y: 1.5053, z: 1.5053}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2731,6 +2734,7 @@ MonoBehaviour:
   waterPump: 0
   well: 1
   itemRequiredToWork: {fileID: 578753601}
+  bomb: 0
 --- !u!61 &1511517460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2857,7 +2861,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveToWell: 1
   speed: 10
-  boreWellTracker: {fileID: 0}
+  counter: 10
+  isBombed: 0
 --- !u!82 &1571324670
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3667,6 +3672,7 @@ MonoBehaviour:
   waterPump: 0
   well: 0
   itemRequiredToWork: {fileID: 0}
+  bomb: 0
 --- !u!58 &1991409951
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -68,6 +68,10 @@ public class playerInventory : MonoBehaviour
     }
 
 
+
+
+
+
     // increase barrel fullpercentage
     public bool barrelIncrease(GameObject findBarrel)
     {
@@ -207,28 +211,48 @@ public class playerInventory : MonoBehaviour
     }
 
 
-    // public bool wellCheck(GameObject wellPercentage)
+
+    // function to check if user has a bomb in their inventory
+    public bool bombCheck(GameObject findBomb)
+    {
+        if(inventory[1] == findBomb)
+        {
+            // user has a bomb
+            Debug.Log("user has a bomb");
+            return true;
+        }
+        else
+        {
+            // 404 bomb not found
+            Debug.Log("user does not have a bomb");
+            return false;
+        }
+    }
+
+
+
+
+    // public void Bomb()
     // {
-    //     if( )
-    // }
+    //     bool hasBomb = false;
 
+    //     bombCheck();
 
-
-
-
-    // public void topUpBarrel()
-    // {
-    //     if(item.fullPercentage < 100)
+    //     if(hasBomb == true)
     //     {
-    //         item.fullPercentage  = fullPercentage + 10;
-    //         Debug.Log("Barrel fullPercentage + 10");
+    //         Debug.Log("user has a bomb");
     //     }
     //     else
     //     {
-    //         Debug.Log("Barrel already full");
+    //         Debug.Log("user does not have a bomb");
     //     }
 
+
+
+
+    //     Remove();
     // }
+
 
 
 }
