@@ -100,6 +100,15 @@ public class userItemInteraction : MonoBehaviour
             else{
                 Debug.Log("User does NOT have a bomb");
             }
+            
+        }
+
+
+        if (Input.GetButtonDown("Repair") && inventory != null)
+        {
+
+            Debug.Log("userItemInteraction -> useBricks");
+            inventory.useBricks();
 
             
         }

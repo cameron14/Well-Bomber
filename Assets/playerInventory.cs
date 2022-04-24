@@ -12,12 +12,13 @@ public class playerInventory : MonoBehaviour
 
 
     public bool hasBomb = false;
+    public bool hasBricks = false;
 
 
 
     public void Update()
     {
-        Debug.Log("hasBomb: " + hasBomb);
+        //Debug.Log("hasBomb: " + hasBomb);
     }
 
 
@@ -94,7 +95,7 @@ public class playerInventory : MonoBehaviour
             if(inventory[0].GetComponent<InteractionObject>().fullPercentage < 100)
             {
                 // Display barrel fullPercentage before increase
-                Debug.Log("inventory[0] full percentage before increase attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);    
+                //Debug.Log("inventory[0] full percentage before increase attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);    
 
                 // Delay increase fullPercentage command to prevent user spamming interact key
                 //Thread.Sleep(1500);
@@ -103,7 +104,7 @@ public class playerInventory : MonoBehaviour
                 inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage + 25;
 
                 // Display barrel fullPercentage after increase
-                Debug.Log("inventory[0] full percentage after increase attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
+                //Debug.Log("inventory[0] full percentage after increase attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
 
                 return true;
             }
@@ -135,7 +136,7 @@ public class playerInventory : MonoBehaviour
             {
 
                 // Display barrel fullPercentage before decrease attempt
-                Debug.Log("inventory[0] full percentage before decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);    
+                //Debug.Log("inventory[0] full percentage before decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);    
 
                 // Delay decrease fullPercentage command to prevent user spamming interact key
                 //Thread.Sleep(1000);
@@ -161,7 +162,7 @@ public class playerInventory : MonoBehaviour
                 wellTracker well_newPercentage;
                 well_newPercentage = FindObjectOfType<wellTracker>();
                 well_newPercentage.wellPercentageGiver(wellPercentageAfterIncrease);
-                Debug.Log("wellPercentage (wellTracker.cs) after increase attempt: " + wellPercentageAfterIncrease);
+                //Debug.Log("wellPercentage (wellTracker.cs) after increase attempt: " + wellPercentageAfterIncrease);
 
 
 
@@ -204,12 +205,12 @@ public class playerInventory : MonoBehaviour
             if(inventory[0].GetComponent<InteractionObject>().fullPercentage > 0)
             {
                 // barrel has water in it
-                Debug.Log("Barrel has water in it.");
+                //Debug.Log("Barrel has water in it.");
                 return true;
             }
             else
             {
-                Debug.Log("Barrel has NO water in it.");
+                //Debug.Log("Barrel has NO water in it.");
                 return false;
             }
         }
@@ -229,14 +230,14 @@ public class playerInventory : MonoBehaviour
         if(inventory[1] == findBomb)
         {
             // user has a bomb
-            Debug.Log("user has a bomb");
+            //Debug.Log("user has a bomb");
             hasBomb = true;
             return true;
         }
         else
         {
             // 404 bomb not found
-            Debug.Log("user does not have a bomb");
+            //Debug.Log("user does not have a bomb");
             hasBomb = false;
             return false;
         }
@@ -253,7 +254,7 @@ public class playerInventory : MonoBehaviour
 
         if(hasBomb == true)
         {
-            Debug.Log("user has a bomb");
+            //Debug.Log("user has a bomb");
 
             
             
@@ -268,12 +269,29 @@ public class playerInventory : MonoBehaviour
         }
         else
         {
-            Debug.Log("user does not have a bomb");
+           // Debug.Log("user does not have a bomb");
         }
 
+        Remove();
+    }
 
 
 
+    public void useBricks()
+    {
+
+  
+
+            Debug.Log("useBricks() -> bricks used");
+            
+            // get counter for the bore from wellTracker.cs
+            changeToLeak wall1 = FindObjectOfType<changeToLeak>();
+
+
+
+            wall1.setToLeakStatus(false);
+
+        
         Remove();
     }
 

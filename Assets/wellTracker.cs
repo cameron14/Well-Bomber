@@ -16,7 +16,7 @@ public class wellTracker : MonoBehaviour
 
     public int boreStartsMovingPercentage = 900;
 
-    bool boreAtWell;
+    public bool boreAtWell;
     //bool answer;
     bool tempAnswer;
     public int counter = 0;
@@ -52,9 +52,9 @@ public class wellTracker : MonoBehaviour
             findOutIfBoreHasReachedWellYet.hasBoreReachedWell(tempAnswer);
             
             boreAtWell = tempAnswer;
-            Debug.Log("has bore reached well yet: " + boreAtWell);
+            //("has bore reached well yet: " + boreAtWell);
             counter++;
-            Debug.Log("Counter: " + counter);
+            //Debug.Log("Counter: " + counter);
 
         }
 
@@ -85,7 +85,7 @@ public class wellTracker : MonoBehaviour
     public void wellPercentageSetter(int barrel_fullPercentage)
     {
         wellPercentage = wellPercentage + barrel_fullPercentage;
-        Debug.Log("NEW WELL PERCENTAGE!!!!!! = " + wellPercentage);
+        //Debug.Log("NEW WELL PERCENTAGE!!!!!! = " + wellPercentage);
 
         increaseWellWater(barrel_fullPercentage);
 
@@ -99,7 +99,7 @@ public class wellTracker : MonoBehaviour
         // USE THE INCREASE WELLPERCENTAGE LINE BELOW TO INCREASE GAME DIFFICULTY
         if (wellPercentage == 1000 || wellPercentage >= 1000)
         {
-            Debug.Log("Well FULL, you win!!!");
+           // Debug.Log("Well FULL, you win!!!");
         
         }
     }
@@ -120,7 +120,7 @@ public class wellTracker : MonoBehaviour
         float tempNum = floating_barrel_fullPercentage / 10;
         float tempNum2 = tempNum / 10;
         
-        Debug.Log("increaseWellWater -> tempNum: " + tempNum2);
+       // Debug.Log("increaseWellWater -> tempNum: " + tempNum2);
 
 
         GetComponent<AudioSource> ().Play ();
@@ -136,7 +136,7 @@ public class wellTracker : MonoBehaviour
     public void decreaseWellWater(int boreNumber) // NEEDS TO CHECK IF WELL GETS TO 0
     {
         
-        Debug.Log("int boreNumber: " + boreNumber);
+       // Debug.Log("int boreNumber: " + boreNumber);
 
         if(boreNumber == 1)
         {
