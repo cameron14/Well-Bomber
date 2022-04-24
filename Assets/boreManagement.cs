@@ -81,18 +81,32 @@ public class boreManagement : MonoBehaviour
 
     public void bombBore1(bool blowUp)
     {
-        // change spirte to blowen up bore
+        
 
         blowUp = true;
+        // change isBombed to true;
         isBombed = blowUp;
         Debug.Log("Bore1 is destroyed " + isBombed);
 
-        // change isBombed to true;
+        
+        // change spirte to blowen up bore
+        bore1bombedSpriteChange kaboom;
+        kaboom = FindObjectOfType<bore1bombedSpriteChange>();
+        kaboom.changeToBombedSprite();
+
+
+
+        
 
         // change leaking to false;
 
 
         // update isBoreAtWell
+        wellTracker _wellTrackerBoreAtWell = FindObjectOfType<wellTracker>();
+        _wellTracker.boreAtWell = false;
+        Debug.Log("boreManagement -> _wellTracker.boreAtWell status: " + _wellTracker.boreAtWell);
+
+
     }
 
 
@@ -145,7 +159,7 @@ public class boreManagement : MonoBehaviour
     public void isBoreAtWell()
     {
 
-        if(transform.position.x == -50f)
+        if(transform.position.x == -50f && isBombed == false)
         {
             //boreAtWell = true;
             //Debug.Log("boreManagment line 46: " + true);

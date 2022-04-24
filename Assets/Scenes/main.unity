@@ -1426,6 +1426,7 @@ MonoBehaviour:
   inventorySprites:
   - {fileID: 134409538}
   - {fileID: 2024134744}
+  hasBomb: 0
 --- !u!1 &1116099270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,6 +2774,7 @@ GameObject:
   - component: {fileID: 1571324667}
   - component: {fileID: 1571324669}
   - component: {fileID: 1571324670}
+  - component: {fileID: 1571324671}
   m_Layer: 0
   m_Name: drill_pixelated_black_long
   m_TagString: Untagged
@@ -2959,6 +2961,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1571324671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571324666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea95771db21546d99a92973f063552d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drill_bombed: {fileID: 21300000, guid: ee32324993fdf410fa39e5c67255ed6d, type: 3}
 --- !u!1 &1616069912
 GameObject:
   m_ObjectHideFlags: 0
