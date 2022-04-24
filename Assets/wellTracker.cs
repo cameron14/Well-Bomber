@@ -70,7 +70,7 @@ public class wellTracker : MonoBehaviour
 
 
         // start moving tunnel bore 2
-        if (wellPercentage >= bore2StartsMovingPercentage && bore2AtWell == false && counter <= 500) // boreStartsMovingPercentage == wellPercentage ||
+        if (wellPercentage >= bore2StartsMovingPercentage && bore2AtWell == false && counter2 <= 500) // boreStartsMovingPercentage == wellPercentage ||
         {
             // call tunnel bore to start moving towards the well
             boreManagement2 callBore;
@@ -180,9 +180,9 @@ public class wellTracker : MonoBehaviour
 
         if(boreNumber == 2)
         {
-            if(wellPercentage >= 1 && wellPercentage < 500)
+            if(wellPercentage >= 1 && wellPercentage <= 500)
             {
-                wellPercentage = wellPercentage - 0;
+                wellPercentage = wellPercentage - 100;
                 transform.Translate(0f, -1f, 0); 
             } 
         }

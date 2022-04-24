@@ -63,7 +63,7 @@ public class boreManagement2 : MonoBehaviour
         holdWellPercentage = _wellTracker.wellPercentage;
         //Debug.Log("holdWellPercentage: " + holdWellPercentage);
 
-        if(_wellTracker.counter >= 500 && isBombed == false)
+        if(_wellTracker.counter2 >= 500 && isBombed == false)
         {
             bore2AtWellFromWellTracker = true;
            // Debug.Log("boreAtWellFromWellTracker: " + boreAtWellFromWellTracker);
@@ -122,7 +122,7 @@ public class boreManagement2 : MonoBehaviour
 
     public bool shouldILeak(bool answer)
     {
-        if(holdWellPercentage >= 500 && bore2AtWellFromWellTracker == true)
+        if(holdWellPercentage >= 1 && bore2AtWellFromWellTracker == true)
         {
             leakNow = true;
            // Debug.Log("leak now@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
@@ -146,7 +146,7 @@ public class boreManagement2 : MonoBehaviour
 
     public void callDecreaseWellWater()
     {
-        int boreNumber = 1;
+        int boreNumber = 2;
 
         // get counter for the bore from wellTracker.cs
         wellTracker _wellTracker2 = FindObjectOfType<wellTracker>();
@@ -193,8 +193,8 @@ public class boreManagement2 : MonoBehaviour
                 
 
                     
-                    float x = 15.0f;
-                    float y = 30.0f;
+                    float x = 5.0f;
+                    float y = 10.0f;
                     InvokeRepeating("callDecreaseWellWater", x, y);
                 
                 break;

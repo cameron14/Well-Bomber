@@ -174,6 +174,14 @@ public class playerInventory : MonoBehaviour
                 //Debug.Log("inventory[0] full percentage after decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
 
                
+
+                if(well_newPercentage.wellPercentageGiver(wellPercentageAfterIncrease) <= 0)
+                {
+                    Debug.Log("GAME OVER - YOU LOOSE");
+                }
+
+
+
                 return true;
             }
             else
@@ -319,10 +327,12 @@ public class playerInventory : MonoBehaviour
             
             // get counter for the bore from wellTracker.cs
             changeToLeak wall1 = FindObjectOfType<changeToLeak>();
+            changeToLeak2 wall2 = FindObjectOfType<changeToLeak2>();
 
 
 
             wall1.setToLeakStatus(false);
+            wall2.setToLeakStatus(false);
 
         
         Remove();
