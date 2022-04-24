@@ -175,9 +175,9 @@ public class playerInventory : MonoBehaviour
 
                
 
-                if(well_newPercentage.wellPercentageGiver(wellPercentageAfterIncrease) <= 0)
+                if(well_newPercentage.wellPercentageGiver(wellPercentageAfterIncrease) >= 1000)
                 {
-                    Debug.Log("GAME OVER - YOU LOOSE");
+                    Debug.Log("GAME OVER - YOU WIN!!!");
                 }
 
 

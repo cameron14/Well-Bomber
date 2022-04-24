@@ -193,8 +193,8 @@ public class boreManagement : MonoBehaviour
                 
 
                     
-                    float x = 15.0f;
-                    float y = 30.0f;
+                    float x = 10.0f;
+                    float y = 10.0f;
                     InvokeRepeating("callDecreaseWellWater", x, y);
                 
                 break;
