@@ -9,13 +9,13 @@ public class boreManagement : MonoBehaviour
     public float speed = 1f; // default speed of tunnel bore - change speed in inspector
     Vector2 endPosition = new Vector2(-50f, 1.63f); // -50f is where the bore stops
     //AudioSource boreNoise;
-    bool boreAtWell;
+    //bool boreAtWell;
     bool boreAtWellFromWellTracker = false;
     //int boreCounter = 0;
     bool leakNow = false;
     int holdWellPercentage = 0;
     public int counter = 10;
-
+    
 
 
     public bool isBombed = false;
@@ -78,6 +78,26 @@ public class boreManagement : MonoBehaviour
 
 
 
+
+    public void bombBore1(bool blowUp)
+    {
+        // change spirte to blowen up bore
+
+        blowUp = true;
+        isBombed = blowUp;
+        Debug.Log("Bore1 is destroyed " + isBombed);
+
+        // change isBombed to true;
+
+        // change leaking to false;
+
+
+        // update isBoreAtWell
+    }
+
+
+
+
     public bool isBoreBombed(bool isBombed)
     {
         return true;
@@ -103,7 +123,7 @@ public class boreManagement : MonoBehaviour
 
     public bool hasBoreReachedWell(bool answer1)
     {
-        return boreAtWell;
+        return boreAtWellFromWellTracker;
         
     }
 
@@ -127,7 +147,7 @@ public class boreManagement : MonoBehaviour
 
         if(transform.position.x == -50f)
         {
-            boreAtWell = true;
+            //boreAtWell = true;
             //Debug.Log("boreManagment line 46: " + true);
 
             changeToLeak leak;

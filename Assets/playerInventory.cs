@@ -11,6 +11,17 @@ public class playerInventory : MonoBehaviour
     public Image[] inventorySprites = new Image[2];
 
 
+    public bool hasBomb = false;
+
+
+
+    public void Update()
+    {
+        Debug.Log("hasBomb: " + hasBomb);
+    }
+
+
+
     // add an item to the inventory array
     public void Add(GameObject item)
     {
@@ -219,12 +230,14 @@ public class playerInventory : MonoBehaviour
         {
             // user has a bomb
             Debug.Log("user has a bomb");
+            hasBomb = true;
             return true;
         }
         else
         {
             // 404 bomb not found
             Debug.Log("user does not have a bomb");
+            hasBomb = false;
             return false;
         }
     }
@@ -232,26 +245,37 @@ public class playerInventory : MonoBehaviour
 
 
 
-    // public void Bomb()
-    // {
-    //     bool hasBomb = false;
+    public void Bomb()
+    {
+        //bool hasBomb = false;
 
-    //     bombCheck();
+        //bombCheck(GameObject findBomb);
 
-    //     if(hasBomb == true)
-    //     {
-    //         Debug.Log("user has a bomb");
-    //     }
-    //     else
-    //     {
-    //         Debug.Log("user does not have a bomb");
-    //     }
+        if(hasBomb == true)
+        {
+            Debug.Log("user has a bomb");
+
+            
+            
+            // get counter for the bore from wellTracker.cs
+            boreManagement bore1Thing = FindObjectOfType<boreManagement>();
+            bool tempTempTemp = true;
+
+
+
+            bore1Thing.bombBore1(tempTempTemp);
+
+        }
+        else
+        {
+            Debug.Log("user does not have a bomb");
+        }
 
 
 
 
-    //     Remove();
-    // }
+        Remove();
+    }
 
 
 

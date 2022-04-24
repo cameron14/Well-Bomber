@@ -73,7 +73,7 @@ public class userItemInteraction : MonoBehaviour
 
             if (currentInteractableObjectScript.bomb)
             {
-                inventory.bombCheck(currentInteractableObjectScript.itemRequiredToWork);
+                   inventory.bombCheck(currentInteractableObjectScript.itemRequiredToWork);
             }
 
             
@@ -91,7 +91,17 @@ public class userItemInteraction : MonoBehaviour
 
         if (Input.GetButtonDown("Bomb") && inventory != null)
         {
-            //inventory.Bomb();
+            //inventory.bombCheck(currentInteractableObjectScript.itemRequiredToWork);
+
+            if(inventory.hasBomb == true)
+            {
+                inventory.Bomb();
+            }
+            else{
+                Debug.Log("User does NOT have a bomb");
+            }
+
+            
         }
 
 
