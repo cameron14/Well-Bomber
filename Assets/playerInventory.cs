@@ -26,7 +26,7 @@ public class playerInventory : MonoBehaviour
     // add an item to the inventory array
     public void Add(GameObject item)
     {
-        bool itemAdded = false;
+        bool hasItemBeenAddedToInventory = false;
 
         // check if there is already an item in the players inventory
         for(int i = 0; i < inventory.Length; i++)
@@ -39,7 +39,7 @@ public class playerInventory : MonoBehaviour
                 inventorySprites[i].overrideSprite = item.GetComponent<SpriteRenderer>().sprite;
 
                 Debug.Log(item.name + " was added to players inventory");
-                itemAdded = true;
+                hasItemBeenAddedToInventory = true;
                 // do something with the object
                 item.SendMessage("DoInteraction");
                 break;
@@ -47,7 +47,7 @@ public class playerInventory : MonoBehaviour
         }
 
         // players inventory is full
-        if (!itemAdded)
+        if (!hasItemBeenAddedToInventory)
         {
             Debug.Log("Players inventory is full - item not added");
         }

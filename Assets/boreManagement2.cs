@@ -15,7 +15,10 @@ public class boreManagement2 : MonoBehaviour
     public bool leakNow = false;
     int holdWellPercentage = 0;
     public int counter = 10;
-    
+    public bool oneTheMove = false;
+    int counterTemp = 0;
+    int counterTemp2 = 0;
+    public bool soundAlarm = false;
 
 
     public bool isBombed = false;
@@ -71,7 +74,45 @@ public class boreManagement2 : MonoBehaviour
         }
 
 
+        while(oneTheMove == true)
+        {
         
+            if(isBombed == true)
+            {
+                GetComponent<AudioSource> ().Stop ();
+                //Debug.Log("stopBoreNoise1");
+                //counterTemp++;
+            }
+            else if(isBombed == false && counterTemp < 1)
+            {
+                GetComponent<AudioSource> ().Play ();
+                //Debug.Log("playBoreNoise1");
+                counterTemp = 5;
+            }
+            break;
+
+        }
+
+
+        while(soundAlarm == true)
+        {
+        
+            if(isBombed == true)
+            {
+                //GetComponent<AudioSource> ().Stop ();
+                //Debug.Log("stopBoreNoise1");
+                //counterTemp++;
+            }
+            else if(isBombed == false && counterTemp2 < 1)
+            {
+                // play warning alarm
+                boreAlarmScript alarm = FindObjectOfType<boreAlarmScript>();
+                alarm.playBoreNoise();
+                counterTemp2 = 5;
+            }
+            break;
+
+        }
 
 
 
@@ -263,6 +304,9 @@ public class boreManagement2 : MonoBehaviour
     public void moveBore()
     {
 
+        soundAlarm = true;
+        oneTheMove = true;
+        
         // Move the tunnel bore to the well
         float step = speed * Time.deltaTime;
         

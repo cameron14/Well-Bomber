@@ -8,14 +8,17 @@ public class boreManagement : MonoBehaviour
     public bool moveToWell = true;
     public float speed = 1f; // default speed of tunnel bore - change speed in inspector
     Vector2 endPosition = new Vector2(-50f, 1.63f); // -50f is where the bore stops
-    //AudioSource boreNoise;
+    AudioSource boreNoise1;
     //bool boreAtWell;
     bool boreAtWellFromWellTracker = false;
     //int boreCounter = 0;
     public bool leakNow = false;
     int holdWellPercentage = 0;
     public int counter = 10;
-    
+    public bool oneTheMove = false;
+    int counterTemp = 0;
+    int counterTemp2 = 0;
+    public bool soundAlarm = false;
 
 
     public bool isBombed = false;
@@ -46,6 +49,9 @@ public class boreManagement : MonoBehaviour
 
         //Debug.Log("boreManagement Start()");
 
+
+
+
         
 
 
@@ -70,8 +76,46 @@ public class boreManagement : MonoBehaviour
             isBoreAtWell();
         }
 
+        
+
+        while(oneTheMove == true)
+        {
+        
+            if(isBombed == false && counterTemp < 1)
+            {
+                GetComponent<AudioSource> ().Play ();
+                //Debug.Log("playBoreNoise1");
+
+                counterTemp = 5;
+            }
+            else if(isBombed == true)
+            {
+                break;
+            }
+            break;
+
+        }
 
         
+        while(soundAlarm == true)
+        {
+        
+            if(isBombed == true)
+            {
+                //GetComponent<AudioSource> ().Stop ();
+                //Debug.Log("stopBoreNoise1");
+                //counterTemp++;
+            }
+            else if(isBombed == false && counterTemp2 < 1)
+            {
+                // play warning alarm
+                boreAlarmScript alarm = FindObjectOfType<boreAlarmScript>();
+                alarm.playBoreNoise();
+                counterTemp2 = 5;
+            }
+            break;
+
+        }
 
 
 
@@ -229,33 +273,33 @@ public class boreManagement : MonoBehaviour
 
 
 
-    public bool callBoreNoise()
-    {
+    // public void callBoreNoise()
+    // {
 
-        bool moving = false;
-        moving = isBoreMoving();
+    //     bool moving = false;
+    //     moving = isBoreMoving();
 
-        if(moving == true) // transform.position.x != -42.7f && transform.position.x != -50f && 
-        {
-            //GetComponent<AudioSource> ().Play ();
+    //     if(moving == true && isBombed != false)  // transform.position.x != -42.7f && transform.position.x != -50f && 
+    //     {
+    //         //GetComponent<AudioSource> ().Play ();
 
-            // call function to play bore noise
-            boreNoiseScript playDrill;
-            playDrill = FindObjectOfType<boreNoiseScript>();
-            playDrill.playBoreNoise();
+    //         // call function to play bore noise
+    //         boreNoiseScript playDrill;
+    //         playDrill = FindObjectOfType<boreNoiseScript>();
+    //         playDrill.playBoreNoise();
 
-        }
-        else
-        {
-            // call function to stop bore noise
-            boreNoiseScript stopNoise;
-            stopNoise = FindObjectOfType<boreNoiseScript>();
-            stopNoise.stopBoreNoise();
-        }
+    //     }
+    //     else
+    //     {
+    //         // call function to stop bore noise
+    //         boreNoiseScript stopNoise;
+    //         stopNoise = FindObjectOfType<boreNoiseScript>();
+    //         stopNoise.stopBoreNoise();
+    //     }
 
 
-        return true;
-    }
+        
+    // }
 
 
 
@@ -265,11 +309,14 @@ public class boreManagement : MonoBehaviour
     public void moveBore()
     {
 
+        soundAlarm = true;
+        oneTheMove = true;
         // Move the tunnel bore to the well
         float step = speed * Time.deltaTime;
         
 
         transform.position = Vector2.MoveTowards(transform.position, endPosition, step);
+        //callBoreNoise();
         isBoreAtWell();
         
 

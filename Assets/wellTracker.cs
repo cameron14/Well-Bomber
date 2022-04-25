@@ -58,6 +58,9 @@ public class wellTracker : MonoBehaviour
             //("has bore reached well yet: " + boreAtWell);
             counter++;
             //Debug.Log("Counter: " + counter);
+            // boreNoiseScript playDrill;
+            // playDrill = FindObjectOfType<boreNoiseScript>();
+            // playDrill.playBoreNoise();
 
         }
 
