@@ -3330,6 +3330,7 @@ GameObject:
   - component: {fileID: 1090275316}
   - component: {fileID: 1090275318}
   - component: {fileID: 1090275317}
+  - component: {fileID: 1090275319}
   m_Layer: 0
   m_Name: Miner
   m_TagString: Untagged
@@ -3413,7 +3414,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090275308}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 658073e8d6b60481ea8f1997afe07c2d, type: 3}
   m_Name: 
@@ -3504,7 +3505,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090275308}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7ada4d2821ef4d9cbfc2abbb57d9d30, type: 3}
   m_Name: 
@@ -3642,6 +3643,21 @@ MonoBehaviour:
   - {fileID: 2024134744}
   hasBomb: 0
   hasBricks: 0
+--- !u!114 &1090275319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090275308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab6fed3c978a49e1bba714946f15ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  playerRigidBody: {fileID: 1090275312}
+  jumpHeight: 400
 --- !u!1 &1116099270
 GameObject:
   m_ObjectHideFlags: 0
