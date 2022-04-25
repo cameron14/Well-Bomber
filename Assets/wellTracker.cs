@@ -18,7 +18,8 @@ public class wellTracker : MonoBehaviour
     bool tempAnswer2;
     public int counter = 0;
     public int counter2 = 0;
-
+    public bool youWon = false;
+    public bool youLost = false;
 
     // return bore counters
     public int boreCounterGiver(int counterFromGiver)
@@ -112,6 +113,7 @@ public class wellTracker : MonoBehaviour
         if (wellPercentage == 1000 || wellPercentage >= 1000)
         {
             Debug.Log("Well FULL, you win!!!");
+            youWon = true;
         
         }
     }
@@ -172,6 +174,7 @@ public class wellTracker : MonoBehaviour
         if (wellPercentage == 0)
         {
             Debug.Log("You lose! Good day sir!");
+            youLost = true;
         
         }
 
