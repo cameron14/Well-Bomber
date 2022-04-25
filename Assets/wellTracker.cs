@@ -149,6 +149,10 @@ public class wellTracker : MonoBehaviour
             {
                 wellPercentage = wellPercentage - 100;
                 transform.Translate(0f, -1f, 0); 
+
+                waterLeakNoise leak;
+                leak = FindObjectOfType<waterLeakNoise>();
+                leak.playLeakNoise();
             } 
         }
 
@@ -158,6 +162,10 @@ public class wellTracker : MonoBehaviour
             {
                 wellPercentage = wellPercentage - 100;
                 transform.Translate(0f, -1f, 0); 
+
+                waterLeakNoise leak;
+                leak = FindObjectOfType<waterLeakNoise>();
+                leak.playLeakNoise();
             } 
         }
 
