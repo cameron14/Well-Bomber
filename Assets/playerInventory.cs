@@ -106,6 +106,13 @@ public class playerInventory : MonoBehaviour
                 // Display barrel fullPercentage after increase
                 //Debug.Log("inventory[0] full percentage after increase attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
 
+
+
+                waterPumpNoiseScript pump;
+                pump = FindObjectOfType<waterPumpNoiseScript>();
+                pump.playPumpNoise();
+
+
                 return true;
             }
             else
