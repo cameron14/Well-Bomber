@@ -17,7 +17,9 @@ public class wellTracker : MonoBehaviour
     bool tempAnswer;
     bool tempAnswer2;
     public int counter = 0;
+    public int counterTarget = 0;
     public int counter2 = 0;
+    public int counterTarget2 = 0;
     public bool youWon = false;
     public bool youLost = false;
 
@@ -43,7 +45,7 @@ public class wellTracker : MonoBehaviour
     void Update()
     {
         // start moving tunnel bore
-        if (wellPercentage >= boreStartsMovingPercentage && boreAtWell == false && counter <= 500) // boreStartsMovingPercentage == wellPercentage ||
+        if (wellPercentage >= boreStartsMovingPercentage && boreAtWell == false && counter <= counterTarget) // boreStartsMovingPercentage == wellPercentage ||
         {
             // call tunnel bore to start moving towards the well
             boreManagement callBore;
@@ -66,7 +68,7 @@ public class wellTracker : MonoBehaviour
         }
 
         // start moving tunnel bore 2
-        if (wellPercentage >= bore2StartsMovingPercentage && bore2AtWell == false && counter2 <= 500) // boreStartsMovingPercentage == wellPercentage ||
+        if (wellPercentage >= bore2StartsMovingPercentage && bore2AtWell == false && counter2 <= counterTarget2) // boreStartsMovingPercentage == wellPercentage ||
         {
             // call tunnel bore to start moving towards the well
             boreManagement2 callBore;

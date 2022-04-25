@@ -14,7 +14,7 @@ public class youWinScreenManager : MonoBehaviour
     {
 
         wellTracker youWonVariable = FindObjectOfType<wellTracker>();
-        Debug.Log("youWonVariable.youWon: " + youWonVariable.youWon);
+        //Debug.Log("youWonVariable.youWon: " + youWonVariable.youWon);
         temp = youWonVariable.youWon;
 
         if(temp == true && counter < 1)

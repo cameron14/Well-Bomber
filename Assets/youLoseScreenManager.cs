@@ -14,7 +14,7 @@ public class youLoseScreenManager : MonoBehaviour
     {
 
         wellTracker youLostVariable = FindObjectOfType<wellTracker>();
-        Debug.Log("youLostVariable.youLost: " + youLostVariable.youLost);
+        //Debug.Log("youLostVariable.youLost: " + youLostVariable.youLost);
         temp = youLostVariable.youLost;
 
         if(temp == true && counter < 1)
