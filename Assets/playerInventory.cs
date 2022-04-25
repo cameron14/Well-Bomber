@@ -270,7 +270,10 @@ public class playerInventory : MonoBehaviour
             boreManagement bore1Thing = FindObjectOfType<boreManagement>();
             bool tempTempTemp = true;
 
+            bombNoiseScript explosion = FindObjectOfType<bombNoiseScript>();
+            explosion.playBombNoise();
 
+            bore1Thing.setOnTheMoveToFalse();
 
             bore1Thing.bombBore1(tempTempTemp);
 
@@ -299,11 +302,14 @@ public class playerInventory : MonoBehaviour
             
             // get counter for the bore from wellTracker.cs
             boreManagement2 bore2Thing = FindObjectOfType<boreManagement2>();
-            bool tempTempTemp = true;
+            bool tempTempTempTemp = true;
 
+            bombNoiseScript explosion = FindObjectOfType<bombNoiseScript>();
+            explosion.playBombNoise();
 
+            bore2Thing.setOnTheMoveToFalse();
 
-            bore2Thing.bombBore2(tempTempTemp);
+            bore2Thing.bombBore2(tempTempTempTemp);
 
         }
         else

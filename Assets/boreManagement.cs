@@ -88,14 +88,21 @@ public class boreManagement : MonoBehaviour
 
                 counterTemp = 5;
             }
-            else if(isBombed == true)
+            
+            if(isBombed == true)
             {
-                break;
+                GetComponent<AudioSource> ().Stop ();
             }
             break;
-
         }
 
+        if(oneTheMove == false)
+        {
+            if(isBombed == true)
+            {
+                GetComponent<AudioSource> ().Stop ();
+            }
+        }
         
         while(soundAlarm == true)
         {
@@ -121,6 +128,11 @@ public class boreManagement : MonoBehaviour
 
     }
 
+
+    public void setOnTheMoveToFalse()
+    {
+        oneTheMove = false;
+    }
 
 
 

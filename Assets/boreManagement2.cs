@@ -8,7 +8,7 @@ public class boreManagement2 : MonoBehaviour
     public bool moveToWell = true;
     public float speed = 1f; // default speed of tunnel bore - change speed in inspector
     Vector2 endPosition = new Vector2(-50f, -3.15f); // -50f is where the bore stops
-    //AudioSource boreNoise;
+    AudioSource boreNoise2;
     //bool boreAtWell;
     bool bore2AtWellFromWellTracker = false;
     //int boreCounter = 0;
@@ -77,22 +77,27 @@ public class boreManagement2 : MonoBehaviour
         while(oneTheMove == true)
         {
         
-            if(isBombed == true)
-            {
-                GetComponent<AudioSource> ().Stop ();
-                //Debug.Log("stopBoreNoise1");
-                //counterTemp++;
-            }
-            else if(isBombed == false && counterTemp < 1)
+            if(isBombed == false && counterTemp < 1)
             {
                 GetComponent<AudioSource> ().Play ();
                 //Debug.Log("playBoreNoise1");
+
                 counterTemp = 5;
             }
+            else if(isBombed == true)
+            {
+                GetComponent<AudioSource> ().Stop ();
+            }
             break;
-
         }
 
+        if(oneTheMove == false)
+        {
+            if(isBombed == true)
+            {
+                GetComponent<AudioSource> ().Stop ();
+            }
+        }
 
         while(soundAlarm == true)
         {
@@ -118,6 +123,11 @@ public class boreManagement2 : MonoBehaviour
 
     }
 
+
+    public void setOnTheMoveToFalse()
+    {
+        oneTheMove = false;
+    }
 
 
 
@@ -264,6 +274,7 @@ public class boreManagement2 : MonoBehaviour
         {
             return false;
         }
+
     }
 
 
