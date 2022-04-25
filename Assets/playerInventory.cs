@@ -40,7 +40,13 @@ public class playerInventory : MonoBehaviour
 
                 Debug.Log(item.name + " was added to players inventory");
                 hasItemBeenAddedToInventory = true;
-                // do something with the object
+
+
+                addItemNoise add;
+                add = FindObjectOfType<addItemNoise>();
+                add.playAddNoise();
+
+
                 item.SendMessage("DoInteraction");
                 break;
             }
@@ -341,13 +347,14 @@ public class playerInventory : MonoBehaviour
             // get counter for the bore from wellTracker.cs
             changeToLeak wall1 = FindObjectOfType<changeToLeak>();
             changeToLeak2 wall2 = FindObjectOfType<changeToLeak2>();
-
-
+   
+            bricksNoiseScript bricks;
+            bricks = FindObjectOfType<bricksNoiseScript>();
+            bricks.playBricksNoise();
 
             wall1.setToLeakStatus(false);
             wall2.setToLeakStatus(false);
 
-        
         Remove();
     }
 
