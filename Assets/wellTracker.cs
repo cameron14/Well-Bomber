@@ -7,30 +7,24 @@ using UnityEngine;
 public class wellTracker : MonoBehaviour
 {
     public int wellPercentage;
-
     public float startingLevel = 9.0f;  // set this number in the inspector to set the waters starting height 
                                         // startingLevel value can be from -10 (bottom) to 0 (top)
-                                        // (might not actually do anyhting idk but the well seems to work if you dont touch it)
-
     AudioSource waterPouring;
-
     public int boreStartsMovingPercentage = 500;
     public int bore2StartsMovingPercentage = 400;
-
     public bool boreAtWell;
     public bool bore2AtWell;
-    //bool answer;
     bool tempAnswer;
     bool tempAnswer2;
     public int counter = 0;
     public int counter2 = 0;
 
 
+    // return bore counters
     public int boreCounterGiver(int counterFromGiver)
     {
         return counter;
     }
-
     public int bore2CounterGiver(int counterFromGiver)
     {
         return counter2;
@@ -67,8 +61,6 @@ public class wellTracker : MonoBehaviour
 
         }
 
-
-
         // start moving tunnel bore 2
         if (wellPercentage >= bore2StartsMovingPercentage && bore2AtWell == false && counter2 <= 500) // boreStartsMovingPercentage == wellPercentage ||
         {
@@ -88,18 +80,10 @@ public class wellTracker : MonoBehaviour
             //Debug.Log("Counter: " + counter);
 
         }
+        int temp = 0;
+        decreaseWellWater(temp);
 
-        //answer = true;
-        //Debug.Log("Final Answer: " + answer);
-        //Debug.Log("Counter: " + counter);
-
-
-    
     }
-
-
-
-
 
 
     // return wellPercentage
@@ -120,22 +104,14 @@ public class wellTracker : MonoBehaviour
 
         increaseWellWater(barrel_fullPercentage);
 
-
-
-
-
-
-
         // level is won if wellPercentageAfterIncrease is 1000 or more
         // USE THE INCREASE WELLPERCENTAGE LINE BELOW TO INCREASE GAME DIFFICULTY
         if (wellPercentage == 1000 || wellPercentage >= 1000)
         {
-           // Debug.Log("Well FULL, you win!!!");
+            Debug.Log("Well FULL, you win!!!");
         
         }
     }
-
-
 
 
     // increase well water image height and wellPercentage
@@ -146,27 +122,22 @@ public class wellTracker : MonoBehaviour
         float floating_barrel_fullPercentage = barrel_fullPercentage;
         //Debug.Log("increaseWellWater -> floating_barrel_fullPercentage: " + floating_barrel_fullPercentage);
 
-
-
         float tempNum = floating_barrel_fullPercentage / 10;
         float tempNum2 = tempNum / 10;
         
        // Debug.Log("increaseWellWater -> tempNum: " + tempNum2);
 
-
         GetComponent<AudioSource> ().Play ();
         //Thread.Sleep(1500);
         
-
         transform.Translate(0f, tempNum2, 0); 
         //Debug.Log("tempIncrease after image update: " + tempIncrease);
     }
 
 
     // decrease well water image height
-    public void decreaseWellWater(int boreNumber) // NEEDS TO CHECK IF WELL GETS TO 0
+    public void decreaseWellWater(int boreNumber)
     {
-        
        // Debug.Log("int boreNumber: " + boreNumber);
 
         if(boreNumber == 1)
@@ -186,18 +157,13 @@ public class wellTracker : MonoBehaviour
                 transform.Translate(0f, -1f, 0); 
             } 
         }
-        
-
-
 
         if (wellPercentage == 0)
         {
-            Debug.Log("You loose! Good day sir!");
+            Debug.Log("You lose! Good day sir!");
         
         }
 
-        
-        
     }
 
 

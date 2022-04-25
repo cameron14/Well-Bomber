@@ -191,13 +191,11 @@ public class boreManagement2 : MonoBehaviour
                 shouldILeak(temp);
                // Debug.Log("Temp:" + temp);
                 
-
-                    
-                    float x = 10.0f;
-                    float y = 10.0f;
-                    InvokeRepeating("callDecreaseWellWater", x, y);
-                
+                float x = 10.0f;
+                float y = 10.0f;
+                InvokeRepeating("callDecreaseWellWater", x, y);
                 break;
+                                    
 
                 // if(wellPercentage <= 500 || boreAtWellFromWellTracker = false)  // ADD IN BIT ABOUT BOMBINB BORE WHERE!!!!!!
                 // {
