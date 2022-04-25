@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class inGameMenuManager : MonoBehaviour
 {
-     public GameObject menu; // Assign in inspector
-     private bool isMenuVisable;
+    public GameObject menu;
+    private bool isMenuVisable;
  
-     void Update() {
-         if (Input.GetKeyDown("escape")) {
-             isMenuVisable = !isMenuVisable;
-             menu.SetActive(isMenuVisable);
-         }
-     }
+    void Update()
+    {
+        if (Input.GetKeyDown("escape")) // keybind = "esc"
+        {
+           isMenuVisable = !isMenuVisable;
+           menu.SetActive(isMenuVisable);
+        }
+
+    }
 }
