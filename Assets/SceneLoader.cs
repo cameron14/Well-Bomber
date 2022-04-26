@@ -36,5 +36,15 @@ public class SceneLoader : MonoBehaviour
         Debug.Log("Game Quit.");
     }
 
+    public void Controls()
+    {
+        SceneManager.LoadScene("controlsScreen");
+    }
+
+    public void mainMenuScreen()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
 

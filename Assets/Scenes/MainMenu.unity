@@ -2806,7 +2806,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 542255146}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: loadLevel1
+        m_MethodName: Controls
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3770,7 +3770,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CONTROLS
+  m_text: ' CONTROLS & HOW TO PLAY'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95c3e5afa75894b9f975dda5b03f331d, type: 2}
   m_sharedMaterial: {fileID: 4188866267323820421, guid: 95c3e5afa75894b9f975dda5b03f331d, type: 2}
@@ -3797,8 +3797,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
