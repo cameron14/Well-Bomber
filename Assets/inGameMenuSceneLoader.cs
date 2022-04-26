@@ -10,6 +10,7 @@ public class inGameMenuSceneLoader : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+
     public void QuitGame()
     {
         Application.Quit();

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class guyMovement : MonoBehaviour
 {
-
     AudioSource footsteps;  // footsteps sound effect
     public float speed; // speed that the character can move
     public Rigidbody2D playerRigidBody; // the character rigidbody
     public float jumpHeight; // how high the character can jump
+
 
     // Update is called once per frame (check for user input for movement)
     void Update()

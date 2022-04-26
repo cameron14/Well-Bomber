@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // script for wellBricksDark (1) to make them change to leaking sprite
-
-
 public class changeToLeak2 : MonoBehaviour
 {
     public Sprite leakingBricks;
     public Sprite normalBricks;
     public bool leaking = false;
+
 
     void Update()
     {
@@ -24,7 +23,6 @@ public class changeToLeak2 : MonoBehaviour
     }
 
 
-
     public bool setToLeakStatus(bool choice)
     {
         if(choice == true)
@@ -35,7 +33,6 @@ public class changeToLeak2 : MonoBehaviour
             leaking = false;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = normalBricks;
 
-
             // set leak now to false    leakNow
             // get counter for the bore2 from wellTracker.cs
             boreManagement2 bore2 = FindObjectOfType<boreManagement2>();
@@ -44,8 +41,6 @@ public class changeToLeak2 : MonoBehaviour
         }
 
         return false;
-
-        
     }
 
 }

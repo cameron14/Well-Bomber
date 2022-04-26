@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // script for wellBricksDark (1) to make them change to leaking sprite
-
-
 public class changeToLeak : MonoBehaviour
 {
     public Sprite leakingBricks;
     public Sprite normalBricks;
     public bool leaking = false;
+
 
     void Update()
     {
@@ -22,7 +21,6 @@ public class changeToLeak : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().sprite = leakingBricks;
         setToLeakStatus(true);
     }
-
 
 
     public bool setToLeakStatus(bool choice)
@@ -43,9 +41,7 @@ public class changeToLeak : MonoBehaviour
 
         }
 
-        return false;
-
-        
+        return false;        
     }
 
 }

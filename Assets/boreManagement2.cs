@@ -19,8 +19,6 @@ public class boreManagement2 : MonoBehaviour
     int counterTemp = 0;
     int counterTemp2 = 0;
     public bool soundAlarm = false;
-
-
     public bool isBombed = false;
 
 
@@ -45,20 +43,13 @@ public class boreManagement2 : MonoBehaviour
 
         // } while (counterEquals500 == false);
         
-
-
         //Debug.Log("boreManagement2 Start()");
-
-        
-
-
     }
 
 
     // Update is called once per frame
     void Update()
     {
-
         // get counter for the bore from wellTracker.cs
         wellTracker _wellTracker = FindObjectOfType<wellTracker>();
         //Debug.Log("_wellTracker.counter: " + _wellTracker.counter);
@@ -119,8 +110,6 @@ public class boreManagement2 : MonoBehaviour
 
         }
 
-
-
     }
 
 
@@ -130,11 +119,8 @@ public class boreManagement2 : MonoBehaviour
     }
 
 
-
     public void bombBore2(bool blowUp)
     {
-        
-
         blowUp = true;
         // change isBombed to true;
         isBombed = blowUp;
@@ -146,29 +132,20 @@ public class boreManagement2 : MonoBehaviour
         kaboom = FindObjectOfType<bore2bombedSpriteChange>();
         kaboom.changeToBombedSprite();
 
-
-
-        
-
         // change leaking to false;
-
 
         // update isBoreAtWell
         wellTracker _wellTrackerBore2AtWell = FindObjectOfType<wellTracker>();
         _wellTrackerBore2AtWell.bore2AtWell = false;
        // Debug.Log("boreManagement2 -> _wellTracker.boreAtWell status: " + _wellTrackerBoreAtWell.boreAtWell);
 
-
     }
-
-
 
 
     public bool isBoreBombed(bool isBombed)
     {
         return isBombed;
     }
-
 
 
     public bool shouldILeak(bool answer)
@@ -185,14 +162,11 @@ public class boreManagement2 : MonoBehaviour
     }
 
 
-
-
     public bool hasBoreReachedWell(bool answer1)
     {
         return bore2AtWellFromWellTracker;
         
     }
-
 
 
     public void callDecreaseWellWater()
@@ -205,7 +179,6 @@ public class boreManagement2 : MonoBehaviour
 
         if (--counter == 0)CancelInvoke("callDecreaseWellWater");
             
-
     }
 
 
@@ -221,13 +194,9 @@ public class boreManagement2 : MonoBehaviour
             leak = FindObjectOfType<changeToLeak2>();
             leak.changeToLeakSprite();
 
-
             // set boreAtWell from wellTracker Update() to true
 
-
             // set well to decrease from bore damage here. e.g. leak if wellPercentage is >= 1000 && wellPercentage <= 500 && boreCounter >= 500 && not bombed
-
-
 
             bool temp = false;
 
@@ -263,7 +232,6 @@ public class boreManagement2 : MonoBehaviour
     }
 
 
-
     public bool isBoreMoving()
     {
         if(transform.position.x != -42.7f)
@@ -276,7 +244,6 @@ public class boreManagement2 : MonoBehaviour
         }
 
     }
-
 
 
     public bool callBoreNoise()
@@ -308,9 +275,6 @@ public class boreManagement2 : MonoBehaviour
     }
 
 
-
-
-
     // tunnel bores will start coming along when the water level in the well gets to a certain percentage e.g. wellPercentage = 500
     public void moveBore()
     {
@@ -325,10 +289,6 @@ public class boreManagement2 : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, endPosition, step);
         isBoreAtWell();
         
-
-
-        
     }
-
 
 }

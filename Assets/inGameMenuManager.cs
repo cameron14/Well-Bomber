@@ -7,6 +7,7 @@ public class inGameMenuManager : MonoBehaviour
     public GameObject menu;
     private bool isMenuVisable;
  
+ 
     void Update()
     {
         if (Input.GetKeyDown("escape")) // keybind = "esc"
@@ -14,6 +15,5 @@ public class inGameMenuManager : MonoBehaviour
            isMenuVisable = !isMenuVisable;
            menu.SetActive(isMenuVisable);
         }
-
     }
 }

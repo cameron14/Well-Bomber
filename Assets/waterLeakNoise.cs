@@ -13,6 +13,7 @@ public class waterLeakNoise : MonoBehaviour
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -20,12 +21,12 @@ public class waterLeakNoise : MonoBehaviour
     }
 
 
-
     public void playLeakNoise()
     {
         GetComponent<AudioSource> ().Play ();
         Debug.Log("play leak");
     }
+
 
     public void stopLeakNoise()
     {

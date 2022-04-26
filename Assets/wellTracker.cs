@@ -23,6 +23,7 @@ public class wellTracker : MonoBehaviour
     public bool youWon = false;
     public bool youLost = false;
 
+
     // return bore counters
     public int boreCounterGiver(int counterFromGiver)
     {
@@ -40,6 +41,7 @@ public class wellTracker : MonoBehaviour
         transform.Translate(0f, startingLevel, 0); 
 
     }
+
 
     // Update is called once per frame
     void Update()

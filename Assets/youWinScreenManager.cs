@@ -9,10 +9,10 @@ public class youWinScreenManager : MonoBehaviour
     bool temp = false;
     int counter = 0;
 
+
     // Update is called once per frame
     void Update()
     {
-
         wellTracker youWonVariable = FindObjectOfType<wellTracker>();
         //Debug.Log("youWonVariable.youWon: " + youWonVariable.youWon);
         temp = youWonVariable.youWon;

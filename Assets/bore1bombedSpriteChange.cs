@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class bore1bombedSpriteChange : MonoBehaviour
 {
-
     public Sprite drill_bombed;
 
 
@@ -15,12 +14,9 @@ public class bore1bombedSpriteChange : MonoBehaviour
     }
 
 
-
     public void changeToBombedSprite()
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = drill_bombed;
     }
-
-
 
 }

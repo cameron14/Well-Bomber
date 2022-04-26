@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class boreAlarmScript : MonoBehaviour
 {
-
     AudioSource boreAlarm;
 
 
@@ -14,12 +13,12 @@ public class boreAlarmScript : MonoBehaviour
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
         
     }
-
 
 
     public void playBoreNoise()
@@ -28,6 +27,7 @@ public class boreAlarmScript : MonoBehaviour
         Debug.Log("playAlarm");
     }
 
+
     public void stopBoreNoise()
     {
         GetComponent<AudioSource> ().Stop ();
@@ -35,3 +35,4 @@ public class boreAlarmScript : MonoBehaviour
     }
 
 }
+

@@ -20,12 +20,12 @@ public class waterPumpNoiseScript : MonoBehaviour
     }
 
 
-
     public void playPumpNoise()
     {
         GetComponent<AudioSource> ().Play ();
         Debug.Log("play explostion");
     }
+    
 
     public void stopPumpNoise()
     {

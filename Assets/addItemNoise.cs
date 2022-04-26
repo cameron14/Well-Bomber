@@ -13,6 +13,7 @@ public class addItemNoise : MonoBehaviour
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -20,12 +21,12 @@ public class addItemNoise : MonoBehaviour
     }
 
 
-
     public void playAddNoise()
     {
         GetComponent<AudioSource> ().Play ();
         Debug.Log("play add");
     }
+
 
     public void stopAddNoise()
     {

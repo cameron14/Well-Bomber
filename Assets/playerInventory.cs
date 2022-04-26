@@ -9,18 +9,14 @@ public class playerInventory : MonoBehaviour
     // create inventory array with space for 1 item
     public GameObject[] inventory = new GameObject[2];
     public Image[] inventorySprites = new Image[2];
-
-
     public bool hasBomb = false;
     public bool hasBricks = false;
-
 
 
     public void Update()
     {
         //Debug.Log("hasBomb: " + hasBomb);
     }
-
 
 
     // add an item to the inventory array
@@ -41,11 +37,9 @@ public class playerInventory : MonoBehaviour
                 Debug.Log(item.name + " was added to players inventory");
                 hasItemBeenAddedToInventory = true;
 
-
                 addItemNoise add;
                 add = FindObjectOfType<addItemNoise>();
                 add.playAddNoise();
-
 
                 item.SendMessage("DoInteraction");
                 break;
@@ -65,7 +59,6 @@ public class playerInventory : MonoBehaviour
     {
         bool itemRemoved = false;
 
-
         if(inventory[1] != null)
         {
             inventory[1] = null;
@@ -84,10 +77,6 @@ public class playerInventory : MonoBehaviour
         }
 
     }
-
-
-
-
 
 
     // increase barrel fullpercentage
@@ -112,12 +101,9 @@ public class playerInventory : MonoBehaviour
                 // Display barrel fullPercentage after increase
                 //Debug.Log("inventory[0] full percentage after increase attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
 
-
-
                 waterPumpNoiseScript pump;
                 pump = FindObjectOfType<waterPumpNoiseScript>();
                 pump.playPumpNoise();
-
 
                 return true;
             }
@@ -141,34 +127,23 @@ public class playerInventory : MonoBehaviour
         // check to see if barrel is in inventory[0]
         if(inventory[0] == findBarrel)
         {
-
             // BARREL EMPTY CHECK
             // found barrel
             // check to see if barrels fullPercentage > 0 (barrel not already empty)
             if(inventory[0].GetComponent<InteractionObject>().fullPercentage > 0)
             {
-
                 // Display barrel fullPercentage before decrease attempt
                 //Debug.Log("inventory[0] full percentage before decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);    
 
                 // Delay decrease fullPercentage command to prevent user spamming interact key
                 //Thread.Sleep(1000);
 
-
-
                 int barrel_fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage;
-
-
 
                 // increase wellPercentage (fill up well)
                 wellTracker setNewWellPercentage;
                 setNewWellPercentage = FindObjectOfType<wellTracker>();
                 setNewWellPercentage.wellPercentageSetter(barrel_fullPercentage);
-
-
-
-
-
 
                 // get wellPercentage after increase from wellTracker and display it in console
                 int wellPercentageAfterIncrease = 0;
@@ -177,23 +152,16 @@ public class playerInventory : MonoBehaviour
                 well_newPercentage.wellPercentageGiver(wellPercentageAfterIncrease);
                 //Debug.Log("wellPercentage (wellTracker.cs) after increase attempt: " + wellPercentageAfterIncrease);
 
-
-
-
                 // Decrease barrel fullPercentage to 0 (set barrel to empty)
                 inventory[0].GetComponent<InteractionObject>().fullPercentage = inventory[0].GetComponent<InteractionObject>().fullPercentage - inventory[0].GetComponent<InteractionObject>().fullPercentage;
 
                 // Display barrel fullPercentage after increase
                 //Debug.Log("inventory[0] full percentage after decrease attempt: " + inventory[0].GetComponent<InteractionObject>().fullPercentage);
 
-               
-
                 if(well_newPercentage.wellPercentageGiver(wellPercentageAfterIncrease) >= 1000)
                 {
                     Debug.Log("GAME OVER - YOU WIN!!!");
                 }
-
-
 
                 return true;
             }
@@ -209,10 +177,6 @@ public class playerInventory : MonoBehaviour
             return false;
         }
     }
-
-
-
-
 
 
     // function to check if user has the barrel in their inventory and
@@ -244,7 +208,6 @@ public class playerInventory : MonoBehaviour
     }
 
 
-
     // function to check if user has a bomb in their inventory
     public bool bombCheck(GameObject findBomb)
     {
@@ -265,19 +228,14 @@ public class playerInventory : MonoBehaviour
     }
 
 
-
-
     public void Bomb()
     {
         //bool hasBomb = false;
-
         //bombCheck(GameObject findBomb);
 
         if(hasBomb == true)
         {
             //Debug.Log("user has a bomb");
-
-            
             
             // get counter for the bore from wellTracker.cs
             boreManagement bore1Thing = FindObjectOfType<boreManagement>();
@@ -287,9 +245,7 @@ public class playerInventory : MonoBehaviour
             explosion.playBombNoise();
 
             bore1Thing.setOnTheMoveToFalse();
-
             bore1Thing.bombBore1(tempTempTemp);
-
         }
         else
         {
@@ -300,19 +256,15 @@ public class playerInventory : MonoBehaviour
     }
 
 
-
-     public void BombBore2()
+    public void BombBore2()
     {
         //bool hasBomb = false;
-
         //bombCheck(GameObject findBomb);
 
         if(hasBomb == true)
         {
             //Debug.Log("user has a bomb");
 
-            
-            
             // get counter for the bore from wellTracker.cs
             boreManagement2 bore2Thing = FindObjectOfType<boreManagement2>();
             bool tempTempTempTemp = true;
@@ -321,9 +273,7 @@ public class playerInventory : MonoBehaviour
             explosion.playBombNoise();
 
             bore2Thing.setOnTheMoveToFalse();
-
             bore2Thing.bombBore2(tempTempTempTemp);
-
         }
         else
         {
@@ -334,30 +284,22 @@ public class playerInventory : MonoBehaviour
     }
 
 
-
-
-
     public void useBricks()
     {
-
-  
-
-            Debug.Log("useBricks() -> bricks used");
+        Debug.Log("useBricks() -> bricks used");
             
-            // get counter for the bore from wellTracker.cs
-            changeToLeak wall1 = FindObjectOfType<changeToLeak>();
-            changeToLeak2 wall2 = FindObjectOfType<changeToLeak2>();
+        // get counter for the bore from wellTracker.cs
+        changeToLeak wall1 = FindObjectOfType<changeToLeak>();
+        changeToLeak2 wall2 = FindObjectOfType<changeToLeak2>();
    
-            bricksNoiseScript bricks;
-            bricks = FindObjectOfType<bricksNoiseScript>();
-            bricks.playBricksNoise();
+        bricksNoiseScript bricks;
+        bricks = FindObjectOfType<bricksNoiseScript>();
+        bricks.playBricksNoise();
 
-            wall1.setToLeakStatus(false);
-            wall2.setToLeakStatus(false);
+        wall1.setToLeakStatus(false);
+        wall2.setToLeakStatus(false);
 
         Remove();
     }
-
-
 
 }

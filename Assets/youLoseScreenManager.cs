@@ -9,10 +9,10 @@ public class youLoseScreenManager : MonoBehaviour
     bool temp = false;
     int counter = 0;
 
+
     // Update is called once per frame
     void Update()
     {
-
         wellTracker youLostVariable = FindObjectOfType<wellTracker>();
         //Debug.Log("youLostVariable.youLost: " + youLostVariable.youLost);
         temp = youLostVariable.youLost;
