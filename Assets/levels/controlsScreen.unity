@@ -183,15 +183,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'How to play:
 
+    - Use the barrel to fill up the well. The barrel is
+    full when the pump stops making noise.
 
-    Use the barrel to fill up the well.
+    - Stand above tunnel bores to bomb
+    them, ideally before they hit the well.
 
-
-    Stand above
-    tunnel bores to bomb them.
-
-
-    Stand next to the well to repair it with bricks.'
+    - Stand next to the well to repair
+    it with bricks.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95c3e5afa75894b9f975dda5b03f331d, type: 2}
   m_sharedMaterial: {fileID: 4188866267323820421, guid: 95c3e5afa75894b9f975dda5b03f331d, type: 2}
